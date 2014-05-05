@@ -1,0 +1,74 @@
+#!/usr/bin/env python
+# -*- coding: utf8 -*-
+
+import csv
+import glob
+import json
+import string
+
+def main():
+    county_directory = '/Users/admin/Downloads/johan-world.geo.json-d849472/countries/USA/*'
+    zip_code_file = '/Users/admin/Downloads/ZIP_CODES.txt'
+    output_file = '/Users/admin/Data/source/devry/db.json'
+
+    states = {}
+
+    for path in glob.glob(county_directory):
+        f = open(path)
+        j = json.load(f)
+
+        state = j['properties']['state']
+
+        for feature in j['features']:
+            name = normalize_county(feature['properties']['name'])
+            geometry = feature['geometry']
+
+            o = {
+                'geometry': geometry,
+                'zips': [],
+            }
+
+            try:
+                states[state][name] = o
+            except KeyError:
+                states[state] = {}
+                states[state][name] = o
+
+    zip_code_reader = csv.reader(open(zip_code_file), delimiter=',', quotechar='"')
+
+    ZIP_INDEX = 0
+    STATE_INDEX = 4
+    COUNTY_INDEX = 5
+
+    for row in zip_code_reader:
+        zip = row[ZIP_INDEX]
+        state = row[STATE_INDEX]
+        county = normalize_county(row[COUNTY_INDEX])
+
+        try:
+            if not (zip in states[state][county]['zips']):
+                states[state][county]['zips'].append(zip)
+        except KeyError:
+            pass
+
+    output = open(output_file, 'w')
+
+    json.dump(states, output)
+
+
+def normalize_county(county):
+    translate_table = {
+        ord(u'á'): u'a',
+        ord(u'í'): u'i',
+        ord(u'ñ'): u'n',
+        ord(u'ó'): u'o',
+        ord(u'ü'): u'u',
+    }
+
+    for x in string.punctuation:
+        translate_table[ord(x)] = None
+
+    return str(unicode(county).translate(translate_table).upper())
+
+if __name__ == '__main__':
+    main()

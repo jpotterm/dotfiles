@@ -1,0 +1,11 @@
+[color]
+    ui = true
+[user]
+    name = Jonathan Potter
+    email = jpotterm@gmail.com
+[alias]
+    br = branch
+    ci = commit
+    co = checkout
+    di = diff
+    st = status

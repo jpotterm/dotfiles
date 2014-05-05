@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rsync -vurlt --progress --delete "/Users/admin/Data/" "/Volumes/Jon Dwaiter Backup/home-data/" --exclude ".fseventsd" --exclude ".DS_Store" --exclude ".Spotlight-V100" --exclude ".Trashes" --exclude ".DocumentRevisions-V100"
+
+rsync -vurlt --progress --delete "/Volumes/Hard Drive/application-data/" "/Volumes/Jon Dwaiter Backup/application-data/" --exclude ".fseventsd" --exclude ".DS_Store" --exclude ".Spotlight-V100" --exclude ".Trashes" --exclude ".DocumentRevisions-V100"

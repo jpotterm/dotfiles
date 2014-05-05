@@ -1,0 +1,31 @@
+[ui]
+ignore = ~/.hgignore_global
+username = Jonathan Potter <jon@dwaiter.com>
+
+[pager]
+pager = LESS='FSRX' less
+
+[extensions]
+bookmarks =
+color =
+graphlog =
+hggit =
+histedit =
+mq =
+pager =
+progress =
+purge =
+record =
+schemes =
+transplant =
+extdiff =
+
+[extdiff]
+cmd.fmdiff = fmdiff
+
+[alias]
+st = status
+br = branches
+
+[schemes]
+mirr = ssh://hg@dwaiter.com:38038/mirror/
