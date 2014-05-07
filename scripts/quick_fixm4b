@@ -1,0 +1,14 @@
+#!/bin/bash
+
+fullname="$1"
+extension="${fullname##*.}"
+name="${fullname%.*}"
+
+mp4chaps --export $fullname
+MP4Box -single 1 $fullname
+MP4Box -add ${name}_track1.m4b -chap $name.chapters.txt ${name}_fixed.$extension
+mp4chaps --convert --chapter-qt ${name}_fixed.$extension
+
+# Cleanup
+rm $name.chapters.txt
+rm ${name}_track1.m4b
