@@ -1,2 +1,27 @@
-*~
+# Compiled Source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# Latex
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.lof
+*.log
+*.lot
+*.toc
+*.out
+*.synctex.gz
+
+# General
+*.pyc
+*.swp
