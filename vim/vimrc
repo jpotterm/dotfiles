@@ -1,12 +1,15 @@
 " Pathogen
-
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set nocompatible                  " Get rid of Vi compatibility mode
 filetype plugin on
+filetype indent on
 
 set number                        " Show line numbers
 set linebreak                     " Break lines at word (requires Wrap lines)
@@ -14,7 +17,7 @@ set visualbell                    " Use visual bell (no beeping)
 
 set nohlsearch                    " Don't highlight search results
 set noshowmatch                   " Don't highlight matching bracket
-set smartcase                     " Enable smart-case search
+set smartcase                     " Ignore case unless uppercase
 set ignorecase                    " Always case-insensitive
 set incsearch                     " Searches for strings incrementally
 
@@ -32,24 +35,42 @@ colorscheme solarized
 set foldmethod=indent             " Fold based on indent
 set nofoldenable                  " Don't fold by default
 set foldnestmax=4                 " Deepest fold is 4 levels
+set foldlevel=4                   " Don't close all folds the first time
 
-
-" Advanced
+set noesckeys                     " Make Escape key respond immediately
 
 set ruler                         " Show row and column ruler information
 set undolevels=1000               " Number of undo levels
 
+set encoding=utf-8
+set lazyredraw                    " Don't update display while executing macros
+set autoread                      " Auto update if file has changed outside Vim
+set showcmd                       " Show current command on status line
+set wildmenu
+set scrolloff=3                   " Padding between screen edge and cursor
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ctrlp_map = '<C-O>'
+let g:ctrlp_working_path_mode = ''
+let g:ctrlp_custom_ignore = {
+    \ 'file': '\v\.(pyc)$',
+    \ }
 let g:loaded_matchparen = 1       " Don't highlight matching brackets
 
 " Disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+runtime macros/matchit.vim        " Use matchit included with Vim
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let mapleader = ","
 
 " Use Ctrl-[hjkl] to select the active split
@@ -59,9 +80,23 @@ nnoremap <silent> <C-H> :wincmd h<CR>
 nnoremap <silent> <C-L> :wincmd l<CR>
 
 " Ctrl-s for save
-nnoremap <silent> <C-S> :update<CR>
-vnoremap <silent> <C-S> <C-C>:update<CR>
-inoremap <silent> <C-S> <C-O>:update<CR>
+nnoremap <silent> <leader>w :write<CR>
 
+" Swap colon and semi-colon
 nnoremap ; :
 vnoremap ; :
+nnoremap : ;
+vnoremap : ;
+
+" Folding only on the nth evel
+nnoremap <leader>z1 :setlocal foldnestmax=1<CR>:setlocal foldlevel=0<>CR>:setlocal foldenable<R
+nnoremap <leader>z2 :sletlocal foldnestmax=2<CR>:setlocal foldlevel=1<CR>:setlocal foldenable<CR>"
+nnoremap <leader>z3 :setlocal foldnestmax=3<CR>:setlocal foldlevel=2<CR>:setlocal foldenable<CR>
+nnoremap <leader>z4 :setlocal foldnestmax=4<CR>:setlocal foldlevel=3<CR>:setlocal foldenable<CR>
+
+nnoremap Y y$
+
+nnoremap <leader>d yyPj
+vnoremap <leader>d yP`<
+
+nnoremap <silent> <leader>c :bp<bar>bd #<CR>
