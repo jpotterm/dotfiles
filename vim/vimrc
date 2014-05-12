@@ -26,6 +26,7 @@ set expandtab                     " Use spaces instead of tabs
 set shiftwidth=4                  " Number of auto-indent spaces
 set smartindent                   " Enable smart-indent
 set smarttab                      " Enable smart-tabs
+set tabstop=4                     " Displayed width of tabs
 set softtabstop=4                 " Number of spaces per Tab
 
 syntax on                         " Syntax highlighting
@@ -58,7 +59,7 @@ set laststatus=2                  " Always show status bar
 let g:ctrlp_map = ''
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_custom_ignore = {
-    \ 'file': '\v\.(pyc)$',
+    \ 'file': '\v\.(pyc|aux|bbl|blg|fdb_latexmk|lof|log|lot|toc|out|synctex\.gz)$',
     \ }
 
 let g:loaded_matchparen = 1       " Don't highlight matching brackets
