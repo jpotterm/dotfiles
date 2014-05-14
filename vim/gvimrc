@@ -1,3 +1,4 @@
-set guifont=Source\ Code\ Pro:h12
-set mouse=
-set guioptions=c
+set guifont=Source\ Code\ Pro:h12     " Use an awesome font
+set mouse=                            " Don't use the mouse
+set guioptions=ce                     " Use console dialogs and GUI tabs
+set gcr=a:blinkon0                    " Turn off blinking cursor
