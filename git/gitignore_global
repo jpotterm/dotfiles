@@ -21,6 +21,7 @@ Thumbs.db
 *.toc
 *.out
 *.synctex.gz
+*.fls
 
 # General
 *.pyc
