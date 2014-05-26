@@ -105,3 +105,35 @@ nnoremap <silent> <leader>d yyPj
 vnoremap <silent> <leader>d yP`<
 
 nnoremap <silent> <leader>c :bp<bar>bd #<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Commands
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! -range DjangoTemplateSpaces <line1>,<line2>call DjangoTemplateSpaces()
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Functions
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! DjangoTemplateSpaces()
+    function! SubLeft(line)
+        return substitute(a:line, '{{\([^ ]\)', '{{ \1', "g")
+    endfunction
+
+    function! SubRight(line)
+        return substitute(a:line, '\([^ ]\)}}', '\1 }}', "g")
+    endfunction
+
+    let line = getline(".")
+    let cleanLine = SubRight(SubLeft(line))
+    call setline(".", cleanLine)
+endfunction
+
+function! MapLines(f, lineNumbers)
+    for i in a:lineNumbers
+        let line = getline(i)
+        let cleanLine = a:f(line)
+        call setline(i, cleanLine)
+    endfor
+endfunction
