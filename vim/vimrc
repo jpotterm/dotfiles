@@ -69,6 +69,12 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 runtime macros/matchit.vim        " Use matchit included with Vim
 
+autocmd FileType htmldjango let b:surround_{char2nr("-")} = "{% \1Tag name: \1 %} \r {% end\1\1 %}"
+
+let g:surround_indent = 0
+
+let g:netrw_list_hide= '.*\.pyc$,.*\.swp$,^\.DS_Store$'
+let g:netrw_preview = 1           " Vertical split preview
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
@@ -114,6 +120,12 @@ command! -range DjangoTemplateSpaces <line1>,<line2>call DjangoTemplateSpaces()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Auto Commands
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufWritePre * :call StripTrailingWhitespace()
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! DjangoTemplateSpaces()
@@ -136,4 +148,11 @@ function! MapLines(f, lineNumbers)
         let cleanLine = a:f(line)
         call setline(i, cleanLine)
     endfor
+endfunction
+
+function! StripTrailingWhitespace()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
 endfunction
