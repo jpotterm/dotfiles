@@ -50,6 +50,7 @@ set showcmd                       " Show current command on status line
 set wildmenu
 set backspace=indent,start        " Backspace over indent and insert start
 set laststatus=2                  " Always show status bar
+set cursorline                    " Highlight the current line
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -75,6 +76,9 @@ let g:surround_indent = 0
 
 let g:netrw_list_hide= '.*\.pyc$,.*\.swp$,^\.DS_Store$'
 let g:netrw_preview = 1           " Vertical split preview
+
+let NERDTreeIgnore = ['\.pyc$', '\.swp$', '^\.DS_Store$', '^\.git$']
+let NERDTreeShowHidden=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
@@ -112,11 +116,14 @@ vnoremap <silent> <leader>d yP`<
 
 nnoremap <silent> <leader>c :bp<bar>bd #<CR>
 
+" Toggle NERDTree
+nnoremap <silent> <leader>t :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Commands
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! -range DjangoTemplateSpaces <line1>,<line2>call DjangoTemplateSpaces()
+command! -nargs=* ChangeIndentWidth call ChangeIndentWidth(<f-args>)
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -155,4 +162,13 @@ function! StripTrailingWhitespace()
     let c = col(".")
     %s/\s\+$//e
     call cursor(l, c)
+endfunction
+
+function! ChangeIndentWidth(old, new)
+    let &l:tabstop=a:old
+    setlocal noexpandtab
+    %retab!
+    let &l:tabstop=a:new
+    setlocal expandtab
+    %retab!
 endfunction
