@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -L .hg ]
+then
+    rm .hg
+    ln -s .hg_$1 .hg
+else
+    echo "Abort: .hg is not a symbolic link"
+fi

@@ -3,6 +3,14 @@ runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 
+if has("neovim")
+    let s:python_host_init = 'python -c "import neovim; neovim.start_host()"'
+    let &initpython = s:python_host_init
+    let &initclipboard = s:python_host_init
+    set unnamedclip " Automatically use clipboard as storage for the unnamed register
+endif
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -117,7 +125,10 @@ vnoremap <silent> <leader>d yP`<
 nnoremap <silent> <leader>c :bp<bar>bd #<CR>
 
 " Toggle NERDTree
-nnoremap <silent> <leader>t :NERDTreeToggle<CR>
+nnoremap <silent> <leader>t :call WorkaroundNERDTreeToggle()<CR>
+
+" Delete all buffers
+nnoremap <leader>ca :1,2000 bd<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Commands
@@ -171,4 +182,8 @@ function! ChangeIndentWidth(old, new)
     let &l:tabstop=a:new
     setlocal expandtab
     %retab!
+endfunction
+
+function! WorkaroundNERDTreeToggle()
+  try | :NERDTreeToggle | catch | :NERDTree | endtry
 endfunction
