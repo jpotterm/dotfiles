@@ -4,10 +4,18 @@ execute pathogen#infect()
 
 
 if has("neovim")
+    " System clipboard
+
     let s:python_host_init = 'python -c "import neovim; neovim.start_host()"'
     let &initpython = s:python_host_init
     let &initclipboard = s:python_host_init
     set unnamedclip " Automatically use clipboard as storage for the unnamed register
+
+
+    " General
+
+    set breakindent                   " Keep wrapped lines at same level
+    set breakindentopt=shift:4        " Indent broken lines
 endif
 
 
@@ -32,7 +40,6 @@ set incsearch                     " Searches for strings incrementally
 set autoindent                    " Auto-indent new lines
 set expandtab                     " Use spaces instead of tabs
 set shiftwidth=4                  " Number of auto-indent spaces
-set smartindent                   " Enable smart-indent
 set smarttab                      " Enable smart-tabs
 set tabstop=4                     " Displayed width of tabs
 set softtabstop=4                 " Number of spaces per Tab
@@ -42,11 +49,10 @@ set t_Co=256                      " Enable 256-color mode
 colorscheme solarized
 
 set foldmethod=indent             " Fold based on indent
+set foldignore=                   " Don't exempt blocks starting with #
 set nofoldenable                  " Don't fold by default
-set foldnestmax=4                 " Deepest fold is 4 levels
-set foldlevel=4                   " Don't close all folds the first time
 
-" set noesckeys                     " Make Escape key respond immediately
+set noesckeys                     " Make Escape key respond immediately
 
 set ruler                         " Show row and column ruler information
 set undolevels=1000               " Number of undo levels
@@ -85,8 +91,12 @@ let g:surround_indent = 0
 let g:netrw_list_hide= '.*\.pyc$,.*\.swp$,^\.DS_Store$'
 let g:netrw_preview = 1           " Vertical split preview
 
-let NERDTreeIgnore = ['\.pyc$', '\.swp$', '^\.DS_Store$', '^\.git$']
+let NERDTreeIgnore = ['\.pyc$', '\.swp$', '^\.DS_Store$', '^\.git$', '\.orig$']
 let NERDTreeShowHidden=1
+
+" Python no double indent
+let g:pyindent_open_paren = '&sw'
+let g:pyindent_continue = '&sw'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
@@ -102,6 +112,9 @@ nnoremap <silent> <C-J> :wincmd j<CR>
 nnoremap <silent> <C-H> :wincmd h<CR>
 nnoremap <silent> <C-L> :wincmd l<CR>
 
+" Really unfold all
+nnoremap <silent> zR :setlocal foldlevel=20<CR>
+
 " Mac terminal interprets C-Space as C-@
 inoremap <C-Space> <C-X><C-O>
 inoremap <C-@> <C-X><C-O>
@@ -110,22 +123,18 @@ inoremap <C-@> <C-X><C-O>
 nnoremap <silent> <leader>f :CtrlP<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 
-" Ctrl-s for save
+" Save shortcut
 nnoremap <silent> <leader>w :write<CR>
 
-" Folding only on the nth evel
-nnoremap <silent> <leader>z1 :setlocal foldnestmax=1<CR>:setlocal foldlevel=0<CR>:setlocal foldenable<CR>
-nnoremap <silent> <leader>z2 :setlocal foldnestmax=2<CR>:setlocal foldlevel=1<CR>:setlocal foldenable<CR>
-nnoremap <silent> <leader>z3 :setlocal foldnestmax=3<CR>:setlocal foldlevel=2<CR>:setlocal foldenable<CR>
-nnoremap <silent> <leader>z4 :setlocal foldnestmax=4<CR>:setlocal foldlevel=3<CR>:setlocal foldenable<CR>
-
+" Duplicate line
 nnoremap <silent> <leader>d yyPj
 vnoremap <silent> <leader>d yP`<
 
-nnoremap <silent> <leader>c :bp<bar>bd #<CR>
-
 " Toggle NERDTree
 nnoremap <silent> <leader>t :call WorkaroundNERDTreeToggle()<CR>
+
+" Delete current buffer
+nnoremap <silent> <leader>c :bp<bar>bd #<CR>
 
 " Delete all buffers
 nnoremap <leader>ca :1,2000 bd<CR>
