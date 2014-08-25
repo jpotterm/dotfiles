@@ -22,6 +22,8 @@ extdiff =
 
 [extdiff]
 cmd.fmdiff = fmdiff
+cmd.vimdiff = mvim
+opts.vimdiff = -f -d
 
 [alias]
 st = status

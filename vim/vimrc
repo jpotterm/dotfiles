@@ -50,7 +50,7 @@ colorscheme solarized
 
 set foldmethod=indent             " Fold based on indent
 set foldignore=                   " Don't exempt blocks starting with #
-set nofoldenable                  " Don't fold by default
+set foldlevelstart=20             " Don't fold by default
 
 set noesckeys                     " Make Escape key respond immediately
 
@@ -139,6 +139,12 @@ nnoremap <silent> <leader>c :bp<bar>bd #<CR>
 " Delete all buffers
 nnoremap <leader>ca :1,2000 bd<CR>
 
+" Toggle search highlighting
+nnoremap <silent> <leader>/ :set hlsearch! hlsearch?<CR>
+
+" Toggle diff mode
+nnoremap <silent> <leader>df :call ToggleDiff()<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Commands
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -155,6 +161,17 @@ autocmd BufWritePre * :call StripTrailingWhitespace()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! ToggleDiff()
+    if &diff
+        diffoff
+        setlocal syntax=on
+    else
+        diffthis
+        setlocal syntax=off
+        setlocal wrap
+    endif
+endfunction
+
 function! DjangoTemplateSpaces()
     function! SubLeft(line)
         return substitute(a:line, '{{\([^ ]\)', '{{ \1', "g")
