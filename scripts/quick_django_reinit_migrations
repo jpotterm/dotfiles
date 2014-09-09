@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+python manage.py migrate $1 zero
+rm apps/$1/migrations/0001_initial.py*
+python manage.py schemamigration $1 --init
+python manage.py migrate $1

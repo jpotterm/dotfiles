@@ -30,8 +30,9 @@ nnoremap <silent> <C-L> :wincmd l<CR>
 " Leader mappings
 "   b:  Ctrl-P buffer
 "   c:  Delete current buffer
-"   ca: Delete all buffers
+"   C:  Delete all buffers
 "   d:  Duplicate line
+"   gi: Python sort imports
 "   i:  Diff file
 "   f:  Ctrl-P file
 "   t:  NERDTree
@@ -54,13 +55,16 @@ vnoremap <silent> <leader>d yP`<
 nnoremap <silent> <leader>t :call WorkaroundNERDTreeToggle()<CR>
 
 " Delete current buffer
-nnoremap <silent> <leader>c :bp<bar>bd #<CR>
+nnoremap <silent> <leader>c :bd<CR>
 
 " Delete all buffers
-nnoremap <leader>ca :1,2000 bd<CR>
+nnoremap <leader><S-C> :1,2000 bd<CR>
 
 " Toggle search highlighting
 nnoremap <silent> <leader>/ :set hlsearch! hlsearch?<CR>
 
 " Toggle diff mode
 nnoremap <silent> <leader>i :call ToggleDiff()<CR>
+
+" Sort python imports
+nnoremap <silent> <leader>gi :%!isort -<CR>

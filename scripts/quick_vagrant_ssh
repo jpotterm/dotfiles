@@ -19,4 +19,4 @@ commands = [
 commands_str = ";".join(commands)
 
 subprocess.call(["vagrant", "ssh", "--", "-t",
-    "bash --init-file <(echo '{}')".format(commands_str)])
+    "sudo bash -c \"bash --init-file <(echo '{}')\"".format(commands_str)])

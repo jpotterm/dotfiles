@@ -1,0 +1,79 @@
+snippet init "__init__" b
+def __init__(self, *args, **kwargs):
+	super($1, self).__init__(*args, **kwargs)
+endsnippet
+
+snippet future "Import compatibility things from future" b
+from __future__ import ${1:division, }${2:unicode_literals}
+endsnippet
+
+snippet sup "Super" b
+super(${1:ClassName}, self).${2:method}($3)
+endsnippet
+
+snippet detail_view "Detail view" b
+from django.shortcuts import render, redirect
+
+def ${1:item}_detail_view(request, pk, slug):
+	$1 = get_or_404(${2:models.Item}, pk)
+
+	if $1 != slug:
+		return redirect($1, permanent=True)
+
+	context = {
+		'$1': $1,
+	}
+
+	return render(request, '$1_detail.html', context)
+endsnippet
+
+snippet list_view "List view" b
+from django.shortcuts import render
+
+def ${1:item}_list_view(request):
+	$1s = ${2:models.Item}.objects.published(for_user=request.user)
+
+	context = {
+		'$1s': paginate($1s, 10, request),
+	}
+
+	return render(request, '$1_list.html', context)
+endsnippet
+
+
+snippet model_displayable "Displayable model" b
+from django.core.urlresolvers import reverse
+from django.utils.encoding import python_2_unicode_compatible
+from dwaiter.dwaiter_django.forms import RichTextField
+from dwaiter.dwaiter_django.model_mixins import Displayable
+
+@python_2_unicode_compatible
+class ${1:MyModel}(Displayable):
+	title = models.CharField(max_length=300)
+	content = RichTextField()
+
+	class Meta:
+		ordering = ['-publication_date']
+
+	def __str__(self):
+		return self.title
+
+	def get_absolute_url(self):
+		return reverse('${2:my_model_detail}', kwargs={'pk': self.pk, 'slug': self.slug})
+endsnippet
+
+snippet admin_displayable "Displayable admin" b
+from django.contrib import admin
+from dwaiter.dwaiter_django.admin import DisplayableAdmin
+
+class ${1:MyModel}Admin(DisplayableAdmin):
+	list_display = ['title', 'publication_date']
+
+	fieldsets = [
+		(None, {
+			'fields': ['title', 'content'],
+		}),
+	] + DisplayableAdmin.fieldsets
+
+admin.site.register(models.$1, $1Admin)
+endsnippet
