@@ -14,3 +14,10 @@ curl -L -o ~/Downloads/vagrant.dmg https://dl.bintray.com/mitchellh/vagrant/vagr
 hdiutil mount ~/Downloads/vagrant.dmg
 sudo installer -pkg /Volumes/Vagrant/Vagrant.pkg -target /
 umount /Volumes/Vagrant/
+
+# Vagrant vbguest plugin
+vagrant plugin install vagrant-vbguest
+
+# Get deployment key
+
+# Install NPM and Bower

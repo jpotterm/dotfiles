@@ -1,6 +1,20 @@
-" Pathogen
-runtime bundle/pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+if has("neovim")
+    runtime! plugin/python_setup.vim
+endif
+
+" Load plugins
+set runtimepath+=$HOME/.vim/bundle/colors_solarized
+set runtimepath+=$HOME/.vim/bundle/commentary
+set runtimepath+=$HOME/.vim/bundle/ctrlp
+set runtimepath+=$HOME/.vim/bundle/disabled_indents
+set runtimepath+=$HOME/.vim/bundle/emmet
+set runtimepath+=$HOME/.vim/bundle/gnupg
+set runtimepath+=$HOME/.vim/bundle/indent_object
+set runtimepath+=$HOME/.vim/bundle/neovim_clipboard
+set runtimepath+=$HOME/.vim/bundle/nerdtree
+set runtimepath+=$HOME/.vim/bundle/repeat
+set runtimepath+=$HOME/.vim/bundle/surround
+set runtimepath+=$HOME/.vim/bundle/ultisnips
 
 if has("neovim")
     source ~/.vimrc.d/neovim.vim

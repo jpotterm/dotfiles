@@ -68,3 +68,6 @@ nnoremap <silent> <leader>i :call ToggleDiff()<CR>
 
 " Sort python imports
 nnoremap <silent> <leader>gi :%!isort -<CR>
+
+" Format file
+nnoremap <silent> <leader>gf :call FormatFile()<CR>
