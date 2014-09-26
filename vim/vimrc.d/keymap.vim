@@ -27,11 +27,27 @@ nnoremap <silent> <C-L> :wincmd l<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Misc mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Allows incsearch highlighting for range commands
+cnoremap $t <CR>:t''<CR>
+cnoremap $T <CR>:T''<CR>
+cnoremap $m <CR>:m''<CR>
+cnoremap $M <CR>:M''<CR>
+cnoremap $d <CR>:d<CR>``
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader mappings
 "   b:  Ctrl-P buffer
 "   c:  Delete current buffer
 "   C:  Delete all buffers
 "   d:  Duplicate line
+"   eb:  Easy motion words before
+"   eh:  Easy motion line forward
+"   el:  Easy motion line backward
+"   ew:  Easy motion words after
 "   gi: Python sort imports
 "   i:  Diff file
 "   f:  Ctrl-P file
@@ -71,3 +87,9 @@ nnoremap <silent> <leader>gi :%!isort -<CR>
 
 " Format file
 nnoremap <silent> <leader>gf :call FormatFile()<CR>
+
+" Easy motion
+map <leader>ew <Plug>(easymotion-w)
+map <leader>eb <Plug>(easymotion-b)
+map <leader>el <Plug>(easymotion-lineforward)
+map <leader>eh <Plug>(easymotion-linebackward)
