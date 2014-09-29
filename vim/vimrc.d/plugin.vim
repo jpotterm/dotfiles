@@ -24,3 +24,9 @@ let NERDTreeShowHidden=1
 " Python no double indent
 let g:pyindent_open_paren = '&sw'
 let g:pyindent_continue = '&sw'
+
+" Syntastic
+let g:yntastic_cursor_columns = 0
+let g:syntastic_mode_map = { "mode": "passive",
+                           \ "active_filetypes": [],
+                           \ "passive_filetypes": [] }

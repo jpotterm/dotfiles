@@ -51,6 +51,8 @@ cnoremap $d <CR>:d<CR>``
 "   gi: Python sort imports
 "   i:  Diff file
 "   f:  Ctrl-P file
+"   sc: Syntastic check
+"   sr: Syntastic reset
 "   t:  NERDTree
 "   w:  Save file
 "   /:  Search highlighting
@@ -93,3 +95,7 @@ map <leader>ew <Plug>(easymotion-w)
 map <leader>eb <Plug>(easymotion-b)
 map <leader>el <Plug>(easymotion-lineforward)
 map <leader>eh <Plug>(easymotion-linebackward)
+
+" Syntastic
+nnoremap <silent> <leader>sc :SyntasticCheck<CR>
+nnoremap <silent> <leader>sr :SyntasticReset<CR>

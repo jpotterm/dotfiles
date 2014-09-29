@@ -15,6 +15,7 @@ set runtimepath+=$HOME/.vim/bundle/neovim_clipboard
 set runtimepath+=$HOME/.vim/bundle/nerdtree
 set runtimepath+=$HOME/.vim/bundle/repeat
 set runtimepath+=$HOME/.vim/bundle/surround
+set runtimepath+=$HOME/.vim/bundle/syntastic
 
 if has("gui_running")
     " Doesn't work with neovim yet
