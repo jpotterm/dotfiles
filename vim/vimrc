@@ -19,7 +19,7 @@ set runtimepath^=$HOME/.vim/bundle/syntastic
 
 if has("gui_running")
     " Doesn't work with neovim yet
-    set runtimepath+=$HOME/.vim/bundle/ultisnips
+    set runtimepath^=$HOME/.vim/bundle/ultisnips
 endif
 
 if has("neovim")
