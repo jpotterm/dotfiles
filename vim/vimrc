@@ -3,19 +3,19 @@ if has("neovim")
 endif
 
 " Load plugins
-set runtimepath+=$HOME/.vim/bundle/colors_solarized
-set runtimepath+=$HOME/.vim/bundle/commentary
-set runtimepath+=$HOME/.vim/bundle/ctrlp
-set runtimepath+=$HOME/.vim/bundle/disabled_indents
-set runtimepath+=$HOME/.vim/bundle/easymotion
-set runtimepath+=$HOME/.vim/bundle/emmet
-set runtimepath+=$HOME/.vim/bundle/gnupg
-set runtimepath+=$HOME/.vim/bundle/indent_object
-set runtimepath+=$HOME/.vim/bundle/neovim_clipboard
-set runtimepath+=$HOME/.vim/bundle/nerdtree
-set runtimepath+=$HOME/.vim/bundle/repeat
-set runtimepath+=$HOME/.vim/bundle/surround
-set runtimepath+=$HOME/.vim/bundle/syntastic
+set runtimepath^=$HOME/.vim/bundle/colors_solarized
+set runtimepath^=$HOME/.vim/bundle/commentary
+set runtimepath^=$HOME/.vim/bundle/ctrlp
+set runtimepath^=$HOME/.vim/bundle/disabled_indents
+set runtimepath^=$HOME/.vim/bundle/easymotion
+set runtimepath^=$HOME/.vim/bundle/emmet
+set runtimepath^=$HOME/.vim/bundle/gnupg
+set runtimepath^=$HOME/.vim/bundle/indent_object
+set runtimepath^=$HOME/.vim/bundle/neovim_clipboard
+set runtimepath^=$HOME/.vim/bundle/nerdtree
+set runtimepath^=$HOME/.vim/bundle/repeat
+set runtimepath^=$HOME/.vim/bundle/surround
+set runtimepath^=$HOME/.vim/bundle/syntastic
 
 if has("gui_running")
     " Doesn't work with neovim yet

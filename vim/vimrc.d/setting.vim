@@ -40,5 +40,5 @@ set wildmenu
 set backspace=indent,start        " Backspace over indent and insert start
 set laststatus=2                  " Always show status bar
 set cursorline                    " Highlight the current line
-set directory=/tmp//,.,~/tmp,/var/tmp
+set directory=/tmp//,.,~/tmp,/var/tmp " Use /tmp for all swap files
 set display=lastline              " Show long lines instead of hiding them with @
