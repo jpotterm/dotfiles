@@ -13,3 +13,24 @@
 [submodule "vim/vim/bundle/ctrlp"]
 	path = vim/vim/bundle/ctrlp
 	url = git@github.com:kien/ctrlp.vim.git
+[submodule "vim/vim/bundle/emmet"]
+	path = vim/vim/bundle/emmet
+	url = git@github.com:mattn/emmet-vim.git
+[submodule "vim/vim/bundle/gnupg"]
+	path = vim/vim/bundle/gnupg
+	url = git@github.com:jamessan/vim-gnupg.git
+[submodule "vim/vim/bundle/indent_object"]
+	path = vim/vim/bundle/indent_object
+	url = git@github.com:michaeljsmith/vim-indent-object.git
+[submodule "vim/vim/bundle/nerdtree"]
+	path = vim/vim/bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule "vim/vim/bundle/repeat"]
+	path = vim/vim/bundle/repeat
+	url = git@github.com:tpope/vim-repeat.git
+[submodule "vim/vim/bundle/surround"]
+	path = vim/vim/bundle/surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule "vim/vim/bundle/ultisnips"]
+	path = vim/vim/bundle/ultisnips
+	url = git@github.com:SirVer/ultisnips.git
