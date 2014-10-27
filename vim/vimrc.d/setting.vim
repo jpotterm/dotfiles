@@ -36,9 +36,12 @@ set encoding=utf-8
 set lazyredraw                    " Don't update display while executing macros
 set autoread                      " Auto update if file has changed outside Vim
 set showcmd                       " Show current command on status line
-set wildmenu
 set backspace=indent,start        " Backspace over indent and insert start
 set laststatus=2                  " Always show status bar
 set cursorline                    " Highlight the current line
 set directory=/tmp//,.,~/tmp,/var/tmp " Use /tmp for all swap files
 set display=lastline              " Show long lines instead of hiding them with @
+set foldopen=hor,mark,percent,quickfix,tag,undo
+
+set wildmenu
+set wildmode=longest:list

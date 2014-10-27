@@ -49,6 +49,7 @@ cnoremap $d <CR>:d<CR>``
 "   el:  Easy motion line backward
 "   ew:  Easy motion words after
 "   gi: Python sort imports
+"   gf: Format file
 "   i:  Diff file
 "   f:  Ctrl-P file
 "   sc: Syntastic check

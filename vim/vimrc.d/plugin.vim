@@ -15,11 +15,9 @@ autocmd FileType htmldjango let b:surround_{char2nr("-")} = "{% \1Tag name: \1 %
 
 let g:surround_indent = 0
 
-let g:netrw_list_hide= '.*\.pyc$,.*\.swp$,^\.DS_Store$'
-let g:netrw_preview = 1           " Vertical split preview
-
-let NERDTreeIgnore = ['\.pyc$', '\.swp$', '^\.DS_Store$', '^\.git$', '\.orig$']
-let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.pyc$', '\.swp$', '^\.DS_Store$', '^\.git$', '^\.hg$', '\.orig$', '^\.vagrant$']
+let NERDTreeShowHidden = 1
+let NERDTreeChDirMode = 2
 
 " Python no double indent
 let g:pyindent_open_paren = '&sw'
