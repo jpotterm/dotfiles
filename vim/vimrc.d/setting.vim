@@ -2,10 +2,6 @@ set nocompatible                  " Get rid of Vi compatibility mode
 filetype plugin on
 filetype indent on
 
-set number                        " Show line numbers
-set linebreak                     " Break lines at word (requires Wrap lines)
-set visualbell                    " Use visual bell (no beeping)
-
 set nohlsearch                    " Don't highlight search results
 set noshowmatch                   " Don't highlight matching bracket
 set smartcase                     " Ignore case unless uppercase
@@ -27,11 +23,15 @@ set foldmethod=indent             " Fold based on indent
 set foldignore=                   " Don't exempt blocks starting with #
 set foldlevelstart=20             " Don't fold by default
 
-set noesckeys                     " Make Escape key respond immediately
+set wildmenu
+set wildmode=longest:list         " Make wildmenu completion more like bash
 
+set number                        " Show line numbers
+set linebreak                     " Break lines at word (requires Wrap lines)
+set visualbell                    " Use visual bell (no beeping)
+set noesckeys                     " Make Escape key respond immediately
 set ruler                         " Show row and column ruler information
 set undolevels=1000               " Number of undo levels
-
 set encoding=utf-8
 set lazyredraw                    " Don't update display while executing macros
 set autoread                      " Auto update if file has changed outside Vim
@@ -42,6 +42,5 @@ set cursorline                    " Highlight the current line
 set directory=/tmp//,.,~/tmp,/var/tmp " Use /tmp for all swap files
 set display=lastline              " Show long lines instead of hiding them with @
 set foldopen=hor,mark,percent,quickfix,tag,undo
-
-set wildmenu
-set wildmode=longest:list
+set gdefault                      " Substitute all occurrences by default
+set completeopt=menu,preview,longest " Complete longest common prefix
