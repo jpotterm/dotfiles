@@ -1,0 +1,4 @@
+#!/bin/bash
+
+name=`basename "$1"`
+tar czf $name.tar.gz "$1"

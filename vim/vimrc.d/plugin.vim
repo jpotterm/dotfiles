@@ -15,9 +15,10 @@ autocmd FileType htmldjango let b:surround_{char2nr("-")} = "{% \1Tag name: \1 %
 
 let g:surround_indent = 0
 
+" NERDTree
 let NERDTreeIgnore = ['\.pyc$', '\.swp$', '^\.DS_Store$', '^\.git$', '^\.hg$', '\.orig$', '^\.vagrant$']
 let NERDTreeShowHidden = 1
-let NERDTreeChDirMode = 2
+let NERDTreeAutoDeleteBuffer = 1
 
 " Python no double indent
 let g:pyindent_open_paren = '&sw'
@@ -28,3 +29,36 @@ let g:yntastic_cursor_columns = 0
 let g:syntastic_mode_map = { "mode": "passive",
                            \ "active_filetypes": [],
                            \ "passive_filetypes": [] }
+
+" YouCompleteMe
+" let g:ycm_key_list_select_completion=[]
+" let g:ycm_key_list_previous_completion=[]
+let g:ycm_semantic_triggers = {
+    \ 'css': ['re!^(    )+', 're!: *'],
+    \ }
+let g:ycm_filetype_specific_completion_to_disable = {
+    \ 'c': 1,
+    \ 'cpp': 1,
+    \ 'cs': 1,
+    \ 'd': 1,
+    \ 'elixir': 1,
+    \ 'erlang': 1,
+    \ 'go': 1,
+    \ 'java': 1,
+    \ 'javascript': 1,
+    \ 'lua': 1,
+    \ 'objc': 1,
+    \ 'objcpp': 1,
+    \ 'ocaml': 1,
+    \ 'perl': 1,
+    \ 'perl6': 1,
+    \ 'php': 1,
+    \ 'python': 1,
+    \ 'ruby': 1,
+    \ 'scala': 1,
+    \ 'vb': 1,
+    \ 'vim': 1,
+    \}
+
+" NerdTreeTabs
+let g:nerdtree_tabs_open_on_gui_startup = 0

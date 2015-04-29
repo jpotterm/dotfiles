@@ -34,3 +34,12 @@
 [submodule "vim/vim/bundle/ultisnips"]
 	path = vim/vim/bundle/ultisnips
 	url = git@github.com:SirVer/ultisnips.git
+[submodule "vim/vim/bundle/you_complete_me"]
+	path = vim/vim/bundle/you_complete_me
+	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "vim/vim/bundle/nerdtree_tabs"]
+	path = vim/vim/bundle/nerdtree_tabs
+	url = git@github.com:jistr/vim-nerdtree-tabs.git
+[submodule "vim/vim/bundle/taboo"]
+	path = vim/vim/bundle/taboo
+	url = git@github.com:gcmt/taboo.vim.git

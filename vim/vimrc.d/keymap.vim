@@ -72,6 +72,7 @@ vnoremap <silent> <leader>d yP`<
 
 " Toggle NERDTree
 nnoremap <silent> <leader>t :call WorkaroundNERDTreeToggle()<CR>
+" nnoremap <silent> <leader>t :NERDTreeTabsToggle<CR>
 
 " Delete current buffer
 nnoremap <silent> <leader>c :bd<CR>

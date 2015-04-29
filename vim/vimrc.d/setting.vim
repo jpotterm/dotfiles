@@ -25,6 +25,8 @@ set foldlevelstart=20             " Don't fold by default
 
 set wildmenu
 set wildmode=longest:list         " Make wildmenu completion more like bash
+set wildignore=*.pyc,*.swp,.DS_Store,.git,.hg,*.orig,.vagrant
+
 
 set number                        " Show line numbers
 set linebreak                     " Break lines at word (requires Wrap lines)
@@ -43,4 +45,4 @@ set directory=/tmp//,.,~/tmp,/var/tmp " Use /tmp for all swap files
 set display=lastline              " Show long lines instead of hiding them with @
 set foldopen=hor,mark,percent,quickfix,tag,undo
 set gdefault                      " Substitute all occurrences by default
-set completeopt=menu,preview,longest " Complete longest common prefix
+" set completeopt=menu,preview,longest " Complete longest common prefix
