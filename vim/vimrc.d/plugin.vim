@@ -62,3 +62,6 @@ let g:ycm_filetype_specific_completion_to_disable = {
 
 " NerdTreeTabs
 let g:nerdtree_tabs_open_on_gui_startup = 0
+
+" Titlecase
+let g:titlecase_map_keys = 0

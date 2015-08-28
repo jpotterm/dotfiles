@@ -50,6 +50,7 @@ cnoremap $d <CR>:d<CR>``
 "   ew:  Easy motion words after
 "   gi: Python sort imports
 "   gf: Format file
+"   gt: Titlecase
 "   i:  Diff file
 "   f:  Ctrl-P file
 "   sc: Syntastic check
@@ -91,6 +92,10 @@ nnoremap <silent> <leader>gi :%!isort -<CR>
 
 " Format file
 nnoremap <silent> <leader>gf :call FormatFile()<CR>
+
+" Titlecase
+nmap <silent> <leader>gt <Plug>Titlecase
+vmap <silent> <leader>gt <Plug>Titlecase
 
 " Easy motion
 map <leader>ew <Plug>(easymotion-w)

@@ -18,6 +18,7 @@ set runtimepath^=$HOME/.vim/bundle/nerdtree
 set runtimepath^=$HOME/.vim/bundle/repeat
 set runtimepath^=$HOME/.vim/bundle/surround
 set runtimepath^=$HOME/.vim/bundle/taboo
+set runtimepath^=$HOME/.vim/bundle/titlecase
 " set runtimepath^=$HOME/.vim/bundle/syntastic
 " set runtimepath^=$HOME/.vim/bundle/you_complete_me
 

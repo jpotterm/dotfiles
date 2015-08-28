@@ -1,3 +1,8 @@
+function! CssPrefix(...)
+    let ieVersion = (a:0 >= 1) ? a:1 : "8"
+    execute "%!postcss --use autoprefixer --autoprefixer.browsers \"last 1 Chrome versions, last 1 Firefox versions, last 1 Safari versions, Explorer >= " . ieVersion . "\""
+endfunction
+
 function! FormatFile()
     if &ft == 'javascript'
         :%!python -m json.tool

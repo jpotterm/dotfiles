@@ -28,6 +28,3 @@ opts.vimdiff = -f -d
 [alias]
 st = status
 br = branches
-
-[schemes]
-mirr = ssh://hg@dwaiter.com:38038/mirror/

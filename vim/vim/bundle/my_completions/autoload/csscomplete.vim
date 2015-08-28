@@ -3,7 +3,7 @@
 " Maintainer:	Mikolaj Machowski ( mikmach AT wp DOT pl )
 " Last Change:	2007 May 5
 
-	let s:values = split("azimuth background background-attachment background-color background-image background-position background-repeat background-size border bottom border-collapse border-color border-spacing border-style border-top border-right border-bottom border-left border-top-color border-right-color border-bottom-color border-left-color  border-top-style border-right-style border-bottom-style border-left-style border-top-width border-right-width border-bottom-width border-left-width border-width border-radius border-top-left-radius border-top-right-radius border-bottom-right-radius border-bottom-left-radius box-shadow box-sizing caption-side clear clip color content counter-increment counter-reset cue cue-after cue-before cursor display direction elevation empty-cells float font font-family font-size font-style font-variant font-weight height left letter-spacing line-height list-style list-style-image list-style-position list-style-type margin margin-right margin-left margin-top margin-bottom max-height max-width min-height min-width orphans outline outline-color outline-style outline-width overflow padding padding-top padding-right padding-bottom padding-left page-break-after page-break-before page-break-inside pause pause-after pause-before pitch pitch-range play-during position quotes right richness speak speak-header speak-numeral speak-punctuation speech-rate stress table-layout text-align text-decoration text-indent text-overflow text-transform top transition unicode-bidi vertical-align visibility voice-family volume white-space width widows word-spacing z-index")
+	let s:values = split("azimuth background background-attachment background-color background-clip background-image background-origin background-position background-repeat background-size border bottom border-collapse border-color border-spacing border-style border-top border-right border-bottom border-left border-top-color border-right-color border-bottom-color border-left-color  border-top-style border-right-style border-bottom-style border-left-style border-top-width border-right-width border-bottom-width border-left-width border-width border-radius border-top-left-radius border-top-right-radius border-bottom-right-radius border-bottom-left-radius box-shadow box-sizing caption-side clear clip color content counter-increment counter-reset cue cue-after cue-before cursor display direction elevation empty-cells float font font-family font-size font-style font-variant font-weight height left letter-spacing line-height list-style list-style-image list-style-position list-style-type margin margin-right margin-left margin-top margin-bottom max-height max-width min-height min-width opacity orphans outline outline-color outline-style outline-width overflow padding padding-top padding-right padding-bottom padding-left page-break-after page-break-before page-break-inside pause pause-after pause-before pitch pitch-range play-during pointer-events position quotes right richness speak speak-header speak-numeral speak-punctuation speech-rate stress table-layout text-align text-decoration text-indent text-overflow text-transform top transition unicode-bidi vertical-align visibility voice-family volume white-space width widows word-spacing word-wrap z-index")
 
 function! csscomplete#CompleteCSS(findstart, base)
 
@@ -109,8 +109,12 @@ elseif borders[max(keys(borders))] == 'colon'
 		let values = ["scroll", "fixed"]
 	elseif prop == 'background-color'
 		let values = ["transparent", "rgb(", "#"]
+	elseif prop == 'background-clip'
+		let values = ["border-box", "content-box", "padding-box"]
 	elseif prop == 'background-image'
 		let values = ["url(", "none"]
+	elseif prop == 'background-origin'
+		let values = ["border-box", "content-box", "padding-box"]
 	elseif prop == 'background-position'
 		let vals = matchstr(line, '.*:\s*\zs.*')
 		if vals =~ '^\%([a-zA-Z]\+\)\?$'
@@ -234,6 +238,8 @@ elseif borders[max(keys(borders))] == 'colon'
 		let values = ["none"]
 	elseif prop == 'min-width'
 		let values = ["none"]
+	elseif prop == 'opacity'
+		return []
 	elseif prop == 'orphans'
 		return []
 	elseif prop == 'outline-color'
@@ -273,6 +279,8 @@ elseif borders[max(keys(borders))] == 'colon'
 		let values = ["x-low", "low", "medium", "high", "x-high"]
 	elseif prop == 'play-during'
 		let values = ["url(", "mix", "repeat", "auto", "none"]
+	elseif prop == 'pointer-events'
+		let values = ["none"]
 	elseif prop == 'position'
 		let values = ["static", "relative", "absolute", "fixed"]
 	elseif prop == 'quotes'
@@ -321,6 +329,8 @@ elseif borders[max(keys(borders))] == 'colon'
 		return []
 	elseif prop == 'word-spacing'
 		let values = ["normal"]
+	elseif prop == 'word-wrap'
+		let values = ["break-word", "normal"]
 	elseif prop == 'z-index'
 		let values = ["auto"]
 	else

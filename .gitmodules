@@ -43,3 +43,6 @@
 [submodule "vim/vim/bundle/taboo"]
 	path = vim/vim/bundle/taboo
 	url = git@github.com:gcmt/taboo.vim.git
+[submodule "vim/vim/bundle/titlecase"]
+	path = vim/vim/bundle/titlecase
+	url = git@github.com:christoomey/vim-titlecase.git
