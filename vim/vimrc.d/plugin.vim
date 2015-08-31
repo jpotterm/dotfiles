@@ -16,7 +16,7 @@ autocmd FileType htmldjango let b:surround_{char2nr("-")} = "{% \1Tag name: \1 %
 let g:surround_indent = 0
 
 " NERDTree
-let NERDTreeIgnore = ['\.pyc$', '\.swp$', '^\.DS_Store$', '^\.git$', '^\.hg$', '\.orig$', '^\.vagrant$']
+let NERDTreeIgnore = ['\.pyc$', '\.swp$', '^\.DS_Store$', '^\.git$', '^\.hg$', '\.orig$', '^\.vagrant$', '^__pycache__$']
 let NERDTreeShowHidden = 1
 let NERDTreeAutoDeleteBuffer = 1
 
