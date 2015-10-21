@@ -11,11 +11,11 @@ defaults write com.apple.systemsound "com.apple.sound.uiaudio.enabled" -int 0
 #defaults write -g "com.apple.sound.beep.feedback" -int 0
 
 # Fast key repeat (lower is faster)
-defaults write -g InitialKeyRepeat -int 15
-defaults write -g KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain KeyRepeat -int 2
 
 # Disable accent menu
-defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Start at login
 osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"$HOME/Applications/Spectacle.app\", hidden:false}"
@@ -30,3 +30,19 @@ tell application "System Events"
     end tell
 end tell
 '
+
+# Always open everything in Finder's column view
+defaults write com.apple.Finder FXPreferredViewStyle clmv
+
+# Set the Finder prefs for hiding volumes on the Desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
+
+
+
+# Hide Safari's bookmark bar
+# defaults write com.apple.Safari ShowFavoritesBar -bool false
+
+# Set up Safari for development
+# defaults write com.apple.Safari IncludeDevelopMenu -bool true
+# defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true

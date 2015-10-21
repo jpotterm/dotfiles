@@ -16,6 +16,7 @@ brew cask install flycut
 
 bash ./lib/spotify.bash
 bash ./lib/settings.bash
+bash ./lib/link.bash
 
 
 # Todo
