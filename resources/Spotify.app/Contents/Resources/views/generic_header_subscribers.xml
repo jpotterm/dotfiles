@@ -1,0 +1,62 @@
+<?
+
+subscribers_dropdown = function()
+?>
+% if #data.subscribers > 0 then
+<deck margin="-6,1" onMouseDown="subscribers" mouseOffsets="2,1" align="left">
+
+%   subscribers_button = function(sela, selb, selc)
+  <box>
+    <img alt="MainListDropdownBg|${sela}" margin="0,-1,0,-1" />
+    <hbox margin="10,0,10,0">
+      <text margin="0,0,0,0" style="skinfont: MainListDropdown|${selb}; size:15">@{Playlist stats subscribers ${data.subscriber_count}} </text>
+      <img margin="0,4,0,0" imagemode="native" align="top" alt="RecessedDropdownArrow|${selc}" />
+    </hbox>
+  </box>
+%   end
+%   subscribers_button("","","")
+%   subscribers_button("mousedown","","")
+%   subscribers_button("down","down","down")
+</deck>
+% end
+<?
+end
+
+subscribers = function()
+?>
+<style>
+  imageSubscriber {
+    width: 60;
+    height: 60;
+    image-mode: cutout;
+  }
+  textSubscriber {
+    textDescription;
+    link-color:#ccc;
+    hoverlink-color:#fff;
+    hoverlink-underline:1;
+  }
+</style>
+%--<debug color="#fff" />
+<vbox flex="66">
+  ${ insert(subscribers_dropdown) }
+  <flow height="60" colspacing="0" rowspacing="0" maxlines="1" margin="0,4,0,4">
+  % for i, subscriber in ipairs(data.subscribers) do
+    <link url="${subscriber.link}">
+      <img style="imageSubscriber" src="${subscriber.image}" alt="PlaceholderArtist|60" />
+    </link>
+  % end
+  </flow>
+  <text style="textSubscriber" maxlines="2"><?
+  for i, subscriber in ipairs(data.subscribers) do
+    if i ~= 1 then
+      print(" • ")
+    end
+    ?><link url="${subscriber.link}">${subscriber.name}</link><?
+  end
+  ?></text>
+</vbox>
+<?
+end
+
+?>

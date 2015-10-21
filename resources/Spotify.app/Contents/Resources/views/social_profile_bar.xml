@@ -1,0 +1,75 @@
+<document>
+
+  <style>
+  buttonHeader {
+    color: #252419;
+    align: right;
+    height: 23;
+    margin: 0,7,7,7;
+    text-shadow: #fff 0 1;
+  }
+  
+  buttonHeaderDone {
+  	text-shadow: #a1dd50 0 1;
+  }
+  
+  textBar {
+    align: middle;
+    text-shadow: #ffd 0 1;
+    max-lines: 1;
+		face:arial;
+		size:14;
+		color:#252419;
+    %-- This flexing, it is ugly.
+    flex: 100;
+    margin: 15,0,15,0;
+  }
+
+	textBarSelf {
+		text-shadow: #f9f9f9 0 1;
+		color:#222;
+	}
+
+  filler {
+    flex: 1;
+    maxwidth: inf;
+  }
+
+  </style>
+
+  %-- <debug color="kaka" />
+
+  <box bgcolor="#373737">
+    <vbox>
+      <box maxWidth="inf">
+        % if data.self then
+        <img alt="HeadBarBackground|self" shadow="1"></img>
+        <hbox>
+          <text style="textBar; textBarSelf">@{Public library description}</text>
+          <box style="filler"/>
+          % if data.editmode then
+          <button style="buttonHeader" padding="13,0,13,0" image="HeadBarButton" label="@{Cancel button}" onClick="cancel" />
+          <button style="buttonHeader; buttonHeaderDone" padding="24,0,13,0" image="HeadBarButton|done" label="@{Done button}" onClick="done" />
+          % else
+          <button style="buttonHeader" padding="24,0,13,0" image="HeadBarButton|config" label="@{Edit button}" onClick="configure" />
+          % end
+        </hbox>
+        % elseif not data.social_enabled then
+        <img alt="HeadBarBackground|other" shadow="1"></img>
+        <hbox>
+          <text style="textBar">@{Publish profile teaser}</text>
+          <box style="filler"/>
+          <button style="buttonHeader" padding="13,0,13,0" image="HeadBarButton|other" label="@{Publish profile button}" onClick="enableSocial" />
+        </hbox>
+        % elseif data.can_add then
+        <img alt="HeadBarBackground|other" shadow="1"></img>
+        <hbox>
+          <text style="textBar">@{Add person text ${data.name} ${data.firstname}}</text>
+          <box style="filler"/>
+          <button style="buttonHeader" padding="24,0,13,0" image="HeadBarButton|add" label="@{Add person button ${data.firstname}}" onClick="follow" />
+        </hbox>
+        % end
+      </box>
+    </vbox>
+  </box>
+</document>

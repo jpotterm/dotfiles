@@ -1,0 +1,79 @@
+<?
+-- This page uses generic_header.xml.
+
+starred_stats = function()
+?>@{Playlist stats tracks ${data.tracks}}<?
+  if data.time then
+?>, ${ formatduration(data.time) }<?
+  end
+end
+
+starred_description = function()
+  if data.username then
+?>@{Collection description for others ${data.username} ${data.userrealname}}<?
+  else
+?>@{Collection description}<?
+  end
+end
+
+template = {
+  image = data.image,
+  icon = data.username and "SidebarRowIcon|otherstarred" or "SidebarRowIcon|starred",
+  title = function() ?>@{Collection header}<? end,
+  stats = starred_stats,
+  description = starred_description,
+  offline_available = data.offline_available,
+  offline = data.is_offline,
+  purchase = {
+	tracks = data.purchase_tracks,
+	price = data.purchase_price,
+	page = data.purchase_page,
+	verb = data.purchase_verb,
+  },
+  title_items = {
+    "standard_title",
+    "filler",
+    "stats",
+  },
+  toolbar_items = {
+    "share",
+  },
+  right_items = {
+  }
+}
+
+include("views/generic_header_subscribers.xml")
+
+if not data.can_share then
+  table.remove(template.toolbar_items, 1)
+end
+
+if data.subscriber_count ~= 0 then
+  table.insert(template.right_items, subscribers)
+end
+
+if not data.self then
+  template.author = data.owner
+  template.author_link = data.owner_link
+end
+
+if data.can_subscribe then
+  if not data.playlist_subscribed then
+    table.insert(template.toolbar_items, "subscribe")
+  end
+end
+if not data.self and data.playlist_subscribed then
+  table.insert(template.toolbar_items, "unsubscribe")
+end
+if data.playlist_subscribed or data.can_offline_sync or data.can_purchase then
+  table.insert(template.toolbar_items, "filler")
+  if data.can_offline_sync then
+    table.insert(template.toolbar_items, "available_offline")
+  elseif data.can_purchase then
+    table.insert(template.toolbar_items, "purchase")
+  end
+end
+
+include("views/generic_header.xml")
+
+?>

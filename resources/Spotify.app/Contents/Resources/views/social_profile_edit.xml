@@ -1,0 +1,259 @@
+<document>
+
+<?
+function makeArtist(name, image_id, link)
+	return { name = name, image_id = image_id, link = link }
+end
+
+function makeTestData()
+	return {
+		playlists = {
+			{
+				id = "1234",
+				name = "Sofa & headphones & a glass of cognac",
+				link = "spotify:search:cognac",
+				creator = "rasmus",
+				creator_link = "spotify.user:rasmus",
+				image = "http://www.dailyicon.net/magazine/wp-content/uploads/2008/07/ellipse01dailyicon.jpg",
+				num_tracks = 35,
+				length = 3600,
+				published = true,
+				publishable = true,
+			},
+			{
+				id = "1235",
+				name = "Party, people, party! Party makes the word go round, and is also a short word. Unfortunately.",
+				link = "spotify:search:paradoxx",
+				num_tracks = 1,
+				loading = true,
+				length = 1,
+				published = true,
+				publishable = true,
+			},
+			{
+				id = "1236",
+				name = "Inbox",
+				link = "spotify:search:paradoxx",
+				creator = "max",
+				creator_link = "spotify.user:max",
+				num_tracks = 12045,
+				length = 183600,
+				collaborative = true,
+				published = false,
+				publishable = false,
+			},
+		}
+	}
+end
+
+if not data.playlists then
+	data = makeTestData()
+end
+?>
+
+	<style>
+		titleText {
+			flex: 1;
+			size: 14;
+			face: arial;
+			bold: 1;
+			color: #fff;
+			text-shadow: #222 0 1;
+			max-lines: 1;
+		}
+
+    userText {
+			flex: 1;
+			size: 14;
+			face: arial;
+			bold: 1;
+			color: #888;
+			text-shadow: #222 0 1;
+			max-lines: 1;
+		}
+
+		separatorH {
+			bgcolor: #303030;
+			height: 1;
+			max-width: inf;
+		}
+
+		playlistTitle {
+			titleText;
+		}
+
+		playlistTitleCollaborative {
+			playlistTitle;
+			color: #a1d0ad;
+		}
+
+		baseText {
+			size: 11;
+			color: #888;
+		}
+
+		separatorV {
+			bgcolor: #303030;
+			width: 1;
+		}
+
+		playlistImageSmall {
+			width: 49;
+			height: 49;
+			shadow: 1;
+			image-mode: cutout;
+		}
+
+		playlistSmall {
+			size: 11;
+			color: #888;
+			max-lines: 1;
+			margin: 0,4,0,0;
+			text-shadow: #222 0 -1;
+		}
+		
+		playlistSmallCollabrative {
+			playlistSmall;
+			size: 9;
+			text-align: right;
+			max-lines: 2;
+			margin: 0,0,15;
+			text-shadow: #222 0 -1;
+		}
+		
+		playlistHeader {
+			bgcolor: #606060;
+		}
+		
+		playlistHeaderTitle {
+			bold: 1;
+			face: arial;
+			size: 14;
+			color: #191919;
+			text-shadow: #777 0 1;
+			margin: 12,2;
+		}
+
+		playlistHeaderText {
+			playlistHeaderTitle;
+			margin: 0;
+			align: middle, center;
+			bold: 0;
+			size: 12;
+			color: #111;
+			face: tahoma;
+		}
+
+		playlistHeaderLink {
+			playlistHeaderText;
+			color:#ddd;
+			textshadow: #333 0 1
+		}
+
+		playlistHeaderCheckbox {
+			playlistHeaderText;
+			margin: 5,0,13,0;
+		}
+
+		spacer {
+			flex: 1;
+			max-width: inf;
+		}
+
+		toggle {
+			face: arial;
+			size: 14;
+			bold: 1;
+			align:middle;
+			align:center;
+		}
+		
+		toggleOff {
+			toggle;
+			color: #515151;
+			text-shadow: #a6a6a6 0 1;
+			margin: 33,0,8,0;
+		}
+
+		toggleOn {
+			toggle;
+			color: #ffffff;
+			text-shadow: #1f5f30 0 -1;
+			margin: 8,0,32,0;
+		}
+
+		toggleButton {
+			height:23;
+		}
+
+
+	</style>
+
+	%-- <debug color="kaka" />
+
+	<vbox>
+		<!-- Header -->
+		<hbox style="playlistHeader">
+			<text style="playlistHeaderTitle">@{Playlists title}</text>
+			<box style="separatorV" />
+			<box style="spacer" />
+			<text style="PlaylistHeaderText" margin="0,0,12,0">@{Profile publish}</text>
+			<deck mouseOffsets="2,1" onclick="publishNone" margin="0,0,12,0">
+				<text style="playlistHeaderLink">@{Profile publish none}</text>
+				<text style="playlistHeaderLink" color="#fff">@{Profile publish none}</text>
+				<text style="playlistHeaderLink" color="#bbb">@{Profile publish none}</text>
+			</deck>
+			<deck mouseOffsets="2,1" onclick="publishAll" margin="0,0,18,0">
+				<text style="playlistHeaderLink">@{Profile publish all}</text>
+				<text style="playlistHeaderLink" color="#fff">@{Profile publish all}</text>
+				<text style="playlistHeaderLink" color="#bbb">@{Profile publish all}</text>
+			</deck>
+		</hbox>
+		<? for i, playlist in ipairs(data.playlists) do ?>
+		<vbox>
+			<hbox>
+				<link url="${playlist.link}">
+					% if playlist.image then
+					<img src="${playlist.image}" style="playlistImageSmall" alt="PlaceholderPlaylist|49"/>
+					% else
+						% if playlist.alt_image then
+					<img style="playlistImageSmall" alt="${playlist.alt_image}"/>
+						% else
+					<img style="playlistImageSmall" alt="PlaceholderPlaylist|49"/>
+						% end
+					% end
+				</link>
+				<box style="separatorV"></box>
+				<vbox style="margin: 8,8,8,2; max-width: inf">
+					% if playlist.loading then
+					<text style="playlistTitle"><link url="${playlist.link}">@{Playlist loading text}</link></text>
+					% else
+						% if playlist.collaborative then
+					<text style="playlistTitleCollaborative"><link url="${playlist.link}">${playlist.name}</link></text>
+						% elseif playlist.owner then
+          <hbox>
+					<text style="playlistTitle"><link url="${playlist.link}">${playlist.name}</link></text>
+          <text style="userText"> @{Generic by <link url="${playlist.ownerlink}">${playlist.owner}</link>}</text>
+          </hbox>
+          % else
+          <text style="playlistTitle"><link url="${playlist.link}">${playlist.name}</link></text>
+            % end
+          <text style="playlistSmall">@{Playlist data text ${playlist.num_tracks} ${formatduration(playlist.length)}}</text>
+					%end
+				</vbox>
+				<box>
+					% if playlist.publishable or playlist.published then
+					<deck align="middle" margin="0,0,15,0" onclick="toggleSlider" id="${playlist.id}" page="${playlist.published and 1 or 0}" class="playlistToggle">
+							<img alt="ToggleButton|off" style="toggleButton" flex="1" />
+							<img alt="ToggleButton" style="toggleButton" flex="1" />
+					</deck>
+					% else
+					<text align="middle" style="playlistSmallCollabrative">@{Collab list text}</text>
+					% end
+				</box>
+			</hbox>
+			<box style="separatorH" />
+		</vbox>
+		% end
+	</vbox>
+</document>

@@ -1,0 +1,861 @@
+<%
+include("views/functions.xml")
+
+if next(data) == nil then
+  data.step_name = "spotify_terms_and_conditions"
+  data.html ={
+    timed_out = true,
+    url ="http://www.spotify.com/redirect/eula/?version=0.5.3-US",
+    height ="8192",
+    width ="30"
+  }
+  data.missing_permissions = {
+    email = true,
+    publish_stream = true,
+    read_stream = true,
+    offline_access = true,
+    user_birthday = true,
+    user_likes = true,
+    publish_actions = true,
+  }
+  data.profile_picture = "http://divage.files.wordpress.com/2011/02/christer_pettersson.jpg"
+  data.email = "kossa@spotify.com"
+  data.rating = 4.5
+end
+
+
+content = {
+automatic_cleanup = {
+title = function() %>@{gracenote_icon}<% end,
+    content = function() %> 
+        <hbox>
+          <vbox>
+            <text style="textHeader">@{Automatically Gracenote header}</text>
+            <text style="textBody">@{Automatically Gracenote description}</text>
+          </vbox>
+          <img src="intro/ill-gracenote.png" margin="0,15,15,15" width="380" height="260"/>
+        </hbox>
+      
+        <hbox align="right, bottom">
+          <% orderButtons(function() %>
+          <button image="ButtonWhiteBg|default" padding="18,0,18,0" style="button;textYes" onclick="accept" label="@{Automatically Gracenote yes}" />
+          <% end, function() %>
+          <button image="ButtonWhiteBg" padding="18,0,18,0" style="button;textNo" onclick="cancel" label="@{Automatically Gracenote no}" />
+	      <% end) %>
+        </hbox>
+      <% end
+  },
+  gracenote_eula = {
+    title = function() %>@{gracenote_icon}<% end,
+    content = function() %>
+        <vbox>
+          <text style="textHeader">@{Gracenote EULA header}</text>
+            <box margin="30,0,30,70">
+              <img align="right" alt="VerticalScrollbar|bright,edge" width="1" />
+              <img align="right,top" alt="VerticalScrollbar|bright,edge" margin="0,0,1,0" width="13" height="1" />
+              <img align="right,bottom" alt="VerticalScrollbar|bright,edge" margin="0,0,1,0" width="13" height="1" />
+              <scrollview maxheight="260" margin="0,0,1,0" scrollbarstyle="bright" maxwidth="inf"><text flex="1" color="#000" align="center" bgcolor="#fff">${data.gracenote_eula}</text></scrollview>
+            </box>
+        </vbox>
+
+        <hbox align="right, bottom">
+          <% orderButtons(function() %>
+            <button image="ButtonWhiteBg|default" padding="18,0,18,0" style="button;textYes" onclick="accept" label="@{Gracenote agree}" />
+          <% end, function() %>
+            <button image="ButtonWhiteBg" padding="18,0,18,0" style="button;textNo" onclick="cancel" label="@{Gracenote disagree}" />
+          <% end) %>
+        </hbox>
+      <% end
+  },
+  facebook_ask = {
+    title = function() %>@{facebook_icon}<% end,
+    content = function() %>
+    <box>
+        <img src="intro/bottom-fade.png" imagemode="tilex" align="bottom "/>
+        <hbox>
+          <vbox>
+            <text style="textHeader">@{Find friends dialog header}</text>
+            <text style="textBody">@{Find friends dialog description}</text>
+          </vbox>
+          <img src="intro/connect-with-facebook.png" margin="0,70,30,15" width="278" height="204" />
+        </hbox>
+
+        <hbox align="right,bottom">
+          <% orderButtons(function() %>
+          <button image="ButtonWhiteBg|default" padding="18,0,18,0" style="button;textYes" onclick="accept" label="@{Find friends dialog yes}" />
+          <% end, function() %>
+          <button image="ButtonWhiteBg" padding="18,0,18,0" style="button;textNo" onclick="cancel" label="@{Find friends dialog no}" />
+	      <% end) %>
+        </hbox>
+      </box>
+      <% end
+  },
+  facebook_auth = {
+    title = function() %>@{facebook_icon}<% end,
+    content = function() %>
+        <html width="${data.html.width}" align="middle,center" height="${data.html.height}" url="${data.html.url}" local_cookies="1" lightbox_browser="1" careAboutNativeVisibility="0" disableSilentMode="0" />
+      <% end
+  },
+  facebook_permission = {
+      title = function() %>@{facebook_icon}<% end,
+      content = function() %>
+      <box height="400">
+        <vbox>
+          %-- The top with the logo and buttons
+          <box>
+            <hbox margin="18,13,0,9" align="middle,left">
+                <img align="middle" width="79" height="84" src="spotifyIcon.png"/>
+                <vbox align="middle">
+                  <text style="fbPermissionHeaderMain">Spotify</text>
+                  <text style="fbPermissionHeaderSub">@{Facebook permission header description}</text>
+                </vbox>
+            </hbox>
+            <hbox align="middle,right" margin="0,10,40,0">
+              <button align="right" height="26" image="FbLightboxButton|default" padding="8,-1,8,1" style="fb-button;textYes" onclick="accept" label="@{Facebook permission okay, listen to music}" />
+              % if data.logout_on_cancel then
+                <button height="26" image="FbLightboxButton|secondary" color="#333" padding="8,-1,8,1" style="fb-button;textNo" onclick="cancel" label="@{Facebook permission log out}" />
+              % else
+                <button height="26" image="FbLightboxButton|secondary" color="#333" padding="8,-1,8,1" style="fb-button;textNo" onclick="cancel" label="@{Facebook permission cancel}" />
+              % end
+            </hbox>
+          </box>
+          <box height="1" bgcolor="#cccccc"/>
+          %-- The middle with text and picture
+          <box bgcolor="#f2f2f2" maxheight="inf" maxwidth="inf">
+            <vbox style="fbPermissionBodyArea" align="left">
+              <text margin="0,0,0,5" color="#919191" size="9" bold="1">@{Facebook permission about this app}</text>
+              <text style="fbPermissionBodySub" flex="1">@{Facebook permission app description}</text>
+
+            </vbox>
+            <vbox style="fbPermissionBodyArea" align="right">
+              % if data.missing_permissions.email or data.missing_permissions.user_birthday then
+                <text margin="0,0,0,1" color="#919191" size="9" bold="1">@{Facebook permission this app will receive}:</text>
+                % if data.missing_permissions.email then
+                    <hbox style="fbPermissionListItem">
+                        <box style="fbPermissionListBullet"/>
+                        <text style="fbPermissionBodySub" flex="1">@{Facebook permission email}</text>
+                    </hbox>
+                % end
+                % if data.missing_permissions.user_birthday then
+                    <hbox style="fbPermissionListItem">
+                        <box style="fbPermissionListBullet"/>
+                        <text style="fbPermissionBodySub" flex="1">@{Facebook permission birthday}</text>
+                    </hbox>
+                % end
+              % end
+
+              <box margin="0,14,13,0" minwidth="100" maxwidth="inf" height="50" bgcolor="#cccccc">
+                  <img margin="11,2,0,0" align="middle" src="fb_permissions_add_to_timeline_big.png" width="34" height="29"/>
+                  <box margin="54,1,1,1" bgcolor="#ffffff" maxwidth="inf" flex="1">
+                    <text style="fbPermissionBodySub" margin="10,7,7,7" flex="1" align="middle">@{Facebook permission publish actions description}</text>
+                  </box>
+              </box>
+            </vbox>
+          </box>
+        </vbox>
+      </box>
+    <% end
+  },
+  facebook_extended_permission = {
+      title = function() %>@{facebook_icon}<% end,
+      content = function() %>
+      <box>
+        <vbox width="600" margin="20,20,0,20">
+            %-- The top with the logo
+            <hbox>
+                <img align="center,left" width="48" height="51" src="spotifyIcon.png"/>
+                <vbox align="middle">
+                    <text style="fbPermissionHeaderMain">Spotify</text>
+                    <hbox margin="10,2,0,0">
+                        <img margin="0,0,-6,0" width="14" height="13" align="middle" src="fb_permissions_check.png"/>
+                        <text style="fbPermissionHeaderSub">@{Facebook permission added app to timeline}</text>
+                    </hbox>
+                </vbox>
+            </hbox>
+            <box height="1" margin="0,10,0,14" bgcolor="#e9e9e9"/>
+            <vbox>
+                <text style="fbPermissionBodySub" color="#2a2a2a">@{Facebook permission ask for permissions}:</text>
+                <box height="1" margin="0,10,0,0" bgcolor="#e9e9e9"/>
+                    % if data.missing_permissions.publish_stream then
+                        <hbox style="permissionItem">
+                            <img width="33" height="33" alt="FbPermissions|publishstream" />
+                            <vbox margin="7,0,0,0">
+                                <text style="fbPermissionBodyMain">@{Facebook permission publish stream}</text>
+                                <text style="fbPermissionBodySub">@{Facebook permission publish stream description}</text>
+                            </vbox>
+                        </hbox>
+                        <box height="1" bgcolor="#e9e9e9"/>
+                    % end
+                    % if data.missing_permissions.read_stream then
+                        <hbox style="permissionItem">
+                            <img width="33" height="33" alt="FbPermissions|readstream" />
+                            <vbox margin="7,0,0,0">
+                                <text style="fbPermissionBodyMain">@{Facebook permission read stream}</text>
+                                <text style="fbPermissionBodySub"></text>
+                            </vbox>
+                        </hbox>
+                        <box height="1" bgcolor="#e9e9e9"/>
+                    % end
+                    % if data.missing_permissions.offline_access then
+                        <hbox style="permissionItem">
+                            <img width="33" height="33" alt="FbPermissions|offline" />
+                            <vbox margin="7,0,0,0">
+                                <text style="fbPermissionBodyMain">@{Facebook permission offline access}</text>
+                                <text width="335" style="fbPermissionBodySub"></text>
+                            </vbox>
+                        </hbox>
+                        <box height="1" bgcolor="#e9e9e9"/>
+                    % end
+            </vbox>
+        </vbox>
+
+        %-- The bottom with buttons
+        <vbox align="bottom" maxheight="42" bgcolor="#f2f2f2">
+            <box height="1" bgcolor="#cccccc"/>
+            <hbox align="bottom,right" margin="0,8,6,0">
+%--                    <% orderButtons(function() %>
+                        <button height="26" image="FbLightboxButton|default" padding="8,-1,8,1" style="fb-button;textYes" onclick="accept" label="@{Facebook permission allow}" />
+%--                    <% end, function() %>
+                    <button height="26" image="FbLightboxButton|secondary" color="#333" padding="8,-1,8,1" style="fb-button;textNo" onclick="cancel" label="@{Facebook permission disallow}" />
+%--                 <% end) %>
+            </hbox>
+        </vbox>
+        % if data.sad_unicorn then
+            <img margin="0,0,0,40" align="right,middle" width="240" height="290" src="http://bbsimg.ngfiles.com/1/21176000/ngbbs4bf20812bc481.jpg"/>
+        % end
+      </box>
+    <% end
+  },
+  edit_profile = {
+    title = function() %>@{profile_icon}<% end,
+    content = function() %>
+    <box>
+        <img src="intro/bottom-fade.png" imagemode="tilex" align="bottom "/>
+        <hbox>
+          <vbox>
+            <text style="textHeader">@{Edit dialog header}</text>
+            <text style="textBody">@{Edit dialog description}</text>
+            <text style="textBody">@{Edit dialog description pt2}</text>
+          </vbox>
+          <img src="intro/spotify-profile.png" margin="0,35,0,15" width="380" height="258"/>
+        </hbox>
+        <hbox align="bottom,right">
+          % if data.show_facebook_checkbox then
+            <deck align="left" margin="15" maxwidth="inf" page="${data.publish}">
+            <box>
+              <button style="publishCheckbox" height="18" padding="22,0,0,0" image="LoginWindowCheckbox" label="@{Publish first time checkbox}" onClick="togglePublish" />
+            </box>
+            <box>
+              <button style="publishCheckbox" height="18" padding="22,0,0,0" image="LoginWindowCheckbox|down" label="@{Publish first time checkbox}" onClick="togglePublish" />
+            </box>
+            </deck>
+          % end
+          <% orderButtons(function() %>
+            <button image="ButtonWhiteBg|default" padding="18,0,18,0" style="button;textYes" onclick="accept" label="@{Edit dialog publish everything}" />
+          <% end, function() %>
+            <button image="ButtonWhiteBg" padding="18,0,18,0" style="button;textNo" onclick="cancel" label="@{Edit dialog let me edit}" />
+	      <% end) %>
+        </hbox>
+      </box>
+      <% end
+  },
+  a_spotify_hulk_login_fb = {
+    title = function() %><% end,
+    content = function() %>
+      <vbox minheight="200" maxwidth="600" background="intro/bgDefault.png" backgroundRepeat="x">
+        <text style="new-hulk-header" align="center" margin="0,15,0,0">@{hulk intro welcome}</text>
+        <text style="new-hulk-subheader" align="center" margin="0,0,0,15">@{hulk intro discover}</text>
+        <vbox>
+          <img src="intro/screenshot.png" align="center,middle" imagemode="native"/>
+        </vbox>
+        % if not data.is_loading then
+        <vbox>
+          % if data.recent_user ~= "" then
+          <button image="LightboxButton" align="center,top" style="hulk-button-ok" padding="12,3,12,5" label="@{hulk login old user ${data.recent_user}}" onClick="is_recent_user" id="hulk_is_that_user"/>
+          <text style="new-hulk-link" margin="0,1,0,15" align="center">@{hulk merge <link style="new-hulk-link" align="center,top" url="haz_account">login proceed</link>}</text>
+          <button image="LightboxButton|secondary" align="center" style="hulk-button-cancel" padding="12,3,12,5" label="@{hulk action new user}" onClick="accept" id="hulk_action_new_user"/>
+          % else
+          <button image="LightboxButton" align="center" style="hulk-button-ok" padding="12,3,12,5" label="@{hulk action new user}" onClick="accept" id="hulk_action_new_user"/>
+          <text style="new-hulk-link" minheight="10" margin="0,0,0,15" align="center">@{hulk merge no user <link style="new-hulk-link" align="center,top" url="haz_account">login proceed</link>}</text>
+          % end
+        </vbox>
+        % else
+        <hbox align="center,middle">
+          <img alt="ThrobberBig" align="center,middle" animdelay="80" imagemode="native"/>
+        </hbox>
+        %end
+        <vbox margin="0,12,0,0" background="intro/legalTextBg.png" backgroundRepeat="x">
+          <vbox maxwidth="590" align="center">
+            <hbox height="5" />
+            % if data.show_post_open_graph then
+            <deck align="center" page="${data.post_open_graph}">
+              <box><button style="new-hulk-legal" height="18" padding="22,0,0,0" image="LoginWindowCheckbox" label="@{hulk post open graph}" onClick="toggle_post_open_graph" /></box>
+              <box><button style="new-hulk-legal" height="18" padding="22,0,0,0" image="LoginWindowCheckbox|down" label="@{hulk post open graph}" onClick="toggle_post_open_graph" /></box>
+            </deck>
+            % end
+            % if data.license_url ~= "" then
+              <text style="new-hulk-legal" align="center">@{hulk tos <link style="new-hulk-legal-link" url="${data.license_url}">terms URL</link>}</text>
+            % end
+            % if not data.show_post_open_graph then
+            <text style="new-hulk-legal" align="center" flex="1" text-align="center">@{post open graph setting pointer}</text>
+            % end
+            <hbox height="7" />
+          </vbox>
+        </vbox>
+      </vbox>
+    <% end
+  },
+  a_spotify_hulk_merge_account = {
+    title = function() %><% end,
+    content = function() %>
+      <vbox minheight="200" maxwidth="600" bgcolor="#65a700" background="intro/bgLogin.png" backgroundRepeat="x">
+        <img src="intro/spotify.png" align="center" margin="0,25,0,10" imagemode="native" />
+        % if data.error_msg ~= "" then
+        <vbox align="center,top" width="211" margin="0,0,0,20">
+          <img alt="LoginErrorBubble|top" align="top" imagemode="native" />
+          <vbox bgcolor="#fff">
+            <hbox margin="10,5,5,0">
+              <img alt="LoginWindowErrorIcon"></img>
+              <text style="login_error_title" margin="10,0,0,0">@{hulk login error occurred}</text>
+            </hbox>
+            <hbox margin="10,5,0,0">
+              <text style="login_error" min-height="25" width="190">${data.error_msg}</text>
+            </hbox>
+          </vbox>
+          <img alt="LoginErrorBubble|bottom" align="bottom" imagemode="native" />
+        </vbox>
+        % else
+        <box height="20" />
+        % end
+        % if not data.logging_in then
+        <text style="login_connect_account" width="200" align="center,middle" margin="0,0,0,15">@{hulk merge account info ${data.connect_with_spotify}}</text>
+        <textinput class="username-input" maxlength="inf" placeholder="@{hulk placeholder username}" align="center" width="220" border="1" height="20" margin="10,0,10,15" />
+        <textinput class="password-input" maxlength="inf" placeholder="@{hulk placeholder password}" align="center" width="220" border="1" height="20" margin="10,0,10,15" password="1" />
+        <text style="login_forgot_password" align="center" margin="0,5,0,10"><link url="${data.forgot_password_url}">@{hulk forgot password}</link></text>
+        % else
+        <text style="login_text" align="center" margin="0,60,0,0">@{hulk merge account logging-in}</text>
+        <img alt="ThrobberLogin" align="center" margin="0,12,0,60" animdelay="80" imagemode="native"/>
+        % end
+        <hbox align="center" margin="0,15,0,40">
+          % if not data.logging_in then
+          <% orderButtons(function() %>
+            <button image="LightboxButton" style="button-ok" padding="12,3,12,5" margin="5,0,5,0" label="@{hulk action login}" onClick="login" id="hulk_action_login"/>
+          <% end, function() %>
+            <button image="LightboxButton|secondary" style="button-cancel" padding="12,3,12,5" margin="5,0,5,0" label="@{hulk action back}" onClick="back" id="hulk_action_back"/>
+          <% end) %>
+          % end
+        </hbox>
+      </vbox>
+    <% end
+  },
+  a_spotify_hulk_login_sp = {
+    title = function() %><% end,
+    content = function() %>
+      <box minheight="200" maxwidth="600" background="intro/bgDefault.png" backgroundRepeat="x">
+        <vbox align="top">
+          <text style="new-hulk-header" align="center" margin="0,15,0,0">@{hulk intro loves social}</text>
+          <text style="new-hulk-subheader" align="center" margin="0,0,0,15">@{hulk intro discover}</text>
+          <vbox>
+            <img src="intro/screenshot.png" align="center,middle" imagemode="native"/>
+          </vbox>
+          % if not data.is_loading then
+          <vbox>
+            % if data.show_connect_with_fb then
+            <hbox align="center,middle">
+            <% orderButtons(function() %>
+              <button image="LightboxButton|default" style="hulk-button-ok" padding="12,3,12,5" margin="5,0,5,0" label="@{hulk action connect with facebook}" onClick="connect_with_fb" id="hulk_action_connect"/>
+            <% end, function() %>
+              <button image="LightboxButton|secondary" style="hulk-button-cancel" padding="12,3,12,5" margin="5,0,5,0" label="@{hulk action no thanks}" onClick="no_thanx" id="hulk_action_no_thanx"/>
+            <% end) %>
+            </hbox>
+            % else
+            <button image="LightboxButton" align="center,middle" style="hulk-button-ok" padding="12,3,12,5" label="@{hulk action get started}" onClick="accept" id="hulk_action_get_started"/>
+            % end
+          </vbox>
+          % else
+          <hbox align="center,middle">
+            <img alt="ThrobberBig" align="center,middle" animdelay="80" imagemode="native"/>
+          </hbox>
+          %end
+          <vbox margin="0,12,0,0" background="intro/legalTextBg.png" backgroundRepeat="x">
+            <vbox maxwidth="480" align="center">
+              <hbox height="7" />
+              % if data.show_post_open_graph then
+              <deck align="center" page="${data.post_open_graph}">
+                <box><button style="new-hulk-legal" flex="1" height="18" padding="22,0,0,0" image="LoginWindowCheckbox" label="@{hulk post open graph}" onClick="toggle_post_open_graph" /></box>
+                <box><button style="new-hulk-legal" flex="1" height="18" padding="22,0,0,0" image="LoginWindowCheckbox|down" label="@{hulk post open graph}" onClick="toggle_post_open_graph" /></box>
+              </deck>
+              % end
+              % if data.license_url ~= "" then
+                <text style="new-hulk-legal" align="center">@{hulk tos <link style="new-hulk-legal-link" url="${data.license_url}">terms URL</link>}</text>
+              % end
+              % if not data.show_post_open_graph then
+                <text style="new-hulk-legal" align="center" text-align="center" flex="1">@{post open graph setting pointer}</text>
+              % end
+              <hbox height="7" />
+            </vbox>
+          </vbox>
+        </vbox>
+      </box>
+    <% end
+  },
+  b_spotify_hulk_login_fb = {
+    content = function() %>
+      <box align="middle" minheight="ignore">
+        <img src="coverArts.jpg" imagemode="native" align="center" />
+        <vbox align="center,middle">
+          <hbox height="50" margin="0,0,0,75">
+            <box maxwidth="inf" flex="1"/>
+            <box align="center">
+              <text style="hulk-header" align="center" width="600">@{hulk header facebook login}</text>
+              <img src="myfade.png" maxwidth="inf" flex="1" imagemode="stretch" />
+            </box>
+            <box maxwidth="inf" flex="1"/>
+          </hbox>
+          <img src="spotifyIcon.png" imagemode="native" align="center" />
+          <vbox align="center" height="60" margin="0,0,0,0">
+            % if data.social_state_known then
+            <hbox align="center" margin="0,0,0,16">
+              <deck align="center" page="${data.post_open_graph}">
+                <box><button style="publishCheckbox" height="18" padding="22,0,0,0" image="LoginWindowCheckbox" label="@{hulk post open graph}" onClick="toggle_post_open_graph" /></box>
+                <box><button style="publishCheckbox" height="18" padding="22,0,0,0" image="LoginWindowCheckbox|down" label="@{hulk post open graph}" onClick="toggle_post_open_graph" /></box>
+              </deck>
+            </hbox>
+            <hbox align="center,bottom">
+              <button image="LightboxButton|secondary" align="left" style="button-cancel" padding="12,3,12,5" label="@{hulk action new user}" onClick="accept" id="hulk_action_new_user"/>
+              <hbox width="12"></hbox>
+              <button image="LightboxButton" align="right" style="button-ok" padding="12,3,12,5" label="@{hulk action existing user}" onClick="haz_account" id="hulk_action_haz_account"/>
+            </hbox>
+            % else
+            <hbox align="center,middle">
+              <img alt="ThrobberBig" align="bottom" animdelay="80" imagemode="native"/>
+            </hbox>
+            % end
+          </vbox>
+        </vbox>
+      </box>
+    <% end
+  },
+  b_spotify_hulk_merge_account = {
+    content = function() %>
+      <box align="middle" minheight="ignore">
+        <img src="coverArts.jpg" imagemode="native" align="center" />
+        <vbox align="center,middle">
+          <hbox height="35">
+            <box maxwidth="inf" flex="1"/>
+            <box align="center" margin="0,0,0,75">
+              <box align="center">
+                <text style="hulk_header" align="center">@{hulk header merge account}</text>
+                <text style="hulk_header_small" align="center" margin="0,35,0,0">@{hulk subheader merge account}</text>
+              </box>
+              <img src="myfade.png" maxheight="80" maxwidth="inf" flex="1" imagemode="stretch" />
+            </box>
+            <box maxwidth="inf" flex="1"/>
+          </hbox>
+          <vbox margin="0,0,0,5" align="center" width="261" minheight="310" background="login/background.png" backgroundRepeat="no-repeat">
+            <img alt="LoginWindowLogo" align="center,top" margin="0,30,0,0" imagemode="native" />
+            <vbox align="center,top" margin="0,10,0,0">
+              % if data.error_msg ~= "" then
+              <vbox align="center,top" width="211" margin="0,0,0,20">
+                <img alt="LoginErrorBubble|top" align="top" imagemode="native" />
+                <vbox bgcolor="#fff">
+                  <hbox margin="10,5,5,0">
+                    <img alt="LoginWindowErrorIcon"></img>
+                    <text style="login_error_title" margin="10,0,0,0">@{hulk login error occurred}</text>
+                  </hbox>
+                  <hbox margin="10,5,0,0">
+                    <text style="login_error" min-height="25" width="190">${data.error_msg}</text>
+                  </hbox>
+                </vbox>
+                <img alt="LoginErrorBubble|bottom" align="bottom" imagemode="native" />
+              </vbox>
+              % else
+              <box height="20" />
+              % end
+              % if not data.throbber then
+              <text style="login_connect_account" width="200" align="center,middle" margin="0,0,0,20">@{hulk merge account info ${data.connect_with_spotify}}</text>
+              <textinput class="username-input" maxlength="inf" placeholder="@{hulk placeholder username}" align="center" width="220" border="1" height="20" margin="10,0,10,15" />
+              <textinput class="password-input" maxlength="inf" placeholder="@{hulk placeholder password}" align="center" width="220" border="1" height="20" margin="10,0,10,15" password="1" />
+              <text style="login_forgot_password" align="center" margin="0,5,0,25"><link url="${data.forgot_password_url}">@{hulk forgot password}</link></text>
+              % else
+              <img alt="ThrobberLogin" align="center" margin="0,30,0,0" animdelay="80" imagemode="native"/>
+              % end
+            </vbox>
+          </vbox>
+          <text style="terms_of_service" align="center" margin="0,5,0,5">@{hulk tos <link style="terms_of_service_link" url="${data.license_url}">terms URL</link>}</text>
+          <hbox align="center,bottom" height="30">
+            % if not data.throbber then
+            <button image="LightboxButton|secondary" align="left" style="button-cancel" padding="12,3,12,5" label="@{hulk action back}" onClick="back" id="hulk_action_back"/>
+            <hbox width="12"></hbox>
+            <button image="LightboxButton" align="right" style="button-ok" padding="12,3,12,5" label="@{hulk action login}" onClick="login" id="hulk_action_login"/>
+            % end
+          </hbox>
+        </vbox>
+      </box>
+    <% end
+  },
+  b_spotify_hulk_login_sp = {
+    content = function() %>
+      <box align="middle" minheight="ignore">
+        <img src="coverArts.jpg" imagemode="native" align="center" />
+        <vbox align="center,middle">
+          <hbox height="35">
+            <box maxwidth="inf" flex="1"/>
+            <box align="center" margin="0,0,0,75">
+              <hbox align="center">
+                <text style="hulk_header" margin="0,0,10,0">@{hulk header spotify}</text>
+                <img src="loves.png" margin="0,2,0,0" imagemode="native"/>
+                <text style="hulk_header" margin="10,0,0,0">@{hulk header sharing}</text>
+              </hbox>
+              <text style="hulk_header_small" align="center" margin="0,30,0,0">@{hulk subheader spotify login}</text>
+              <img src="myfade.png" maxwidth="inf" flex="1" imagemode="stretch" />
+            </box>
+            <box maxwidth="inf" flex="1"/>
+          </hbox>
+          <img src="facebookIcon.png" imagemode="native" align="center" />
+          <vbox height="60">
+            % if data.social_state_known then
+            <hbox align="center" margin="0,0,0,5">
+              <deck align="center" page="${data.post_open_graph}">
+                <box><button style="publishCheckbox" height="18" padding="22,0,0,0" image="LoginWindowCheckbox" label="@{hulk post open graph}" onClick="toggle_post_open_graph" /></box>
+                <box><button style="publishCheckbox" height="18" padding="22,0,0,0" image="LoginWindowCheckbox|down" label="@{hulk post open graph}" onClick="toggle_post_open_graph" /></box>
+              </deck>
+            </hbox>
+            <text style="terms_of_service" align="center" margin="0,5,0,10">@{hulk tos <link style="terms_of_service_link" url="${data.license_url}">terms URL</link>}</text>
+            <hbox align="center,bottom">
+              % if data.is_social_fb then
+              <button image="LightboxButton" align="left" style="button-ok" padding="12,3,12,5" label="@{hulk action get started}" onClick="accept" id="hulk_action_get_started"/>
+              % else
+              <button image="LightboxButton|secondary" align="left" style="button-cancel" padding="12,3,12,5" label="@{hulk action no thanks}" onClick="no_thanx" id="hulk_action_no_thanx"/>
+              <hbox width="12"></hbox>
+              <button image="LightboxButton" align="right" style="button-ok" padding="12,3,12,5" label="@{hulk action connect with facebook}" onClick="connect_with_fb" id="hulk_action_connect"/>
+              % end
+            </hbox>
+            % else
+            <hbox align="center,middle">
+              <img alt="ThrobberBig" align="bottom" margin="0,0,0,0" animdelay="80" imagemode="native"/>
+            </hbox>
+            % end
+          </vbox>
+        </vbox>
+      </box>
+    <% end
+  },
+  spotify_terms_and_conditions = {
+    title = function() %>@{license_icon}<% end,
+    content = function() %>
+        <vbox>
+          <box margin="0,0,0,39">
+            % if data.timed_out or data.wine then
+              <vbox maxheight="inf">
+                <box maxheight="inf"><text style="textHeaderLink" align="bottom" margin="0,0,0,3"><link url="${data.html.url}">@{updated-license linktext}</link></text></box>
+                % if data.wine then
+                  <text style="textBody" align="center" margin="0,0,0,3">${data.html.url}</text>
+                % end
+                <box maxheight="inf"><text style="textBody" align="center,top" margin="0,0,0,3">@{updated-license description}</text></box>
+              </vbox>
+            % else
+              <html width="${data.html.width}" height="${data.html.height}" url="${data.html.url}" careAboutNativeVisibility="0" disableSilentMode="1" showScrollBars="1"/>
+            % end
+          </box>
+        </vbox>
+		    <box align="bottom" flex="1">
+          <box align="bottom" height="39" background="window-flow-footer.png" backgroundRepeat="x" flex="1"/>
+            <hbox flex="1" align="right">
+             % orderButtons(function()
+			       % if data.timed_out or data.loaded then
+			         <button image="LightboxButton" style="footer-button-ok" padding="12,3,12,5" label="@{Spotify tac accept}" onClick="accept"/>
+			       % else
+			         <button image="LightboxButton" style="footer-button-ok-disabled" disabled="1" padding="12,3,12,5" label="@{Spotify tac accept}" onClick="accept"/>
+			       % end
+		         % end, function()
+			         <button image="LightboxButton|secondary" style="footer-button-cancel" padding="12,3,12,5" label="@{Spotify tac cancel}" onClick="cancel"/>
+		         % end)
+        </hbox>
+      </box>
+	  <% end
+  },
+  capper = {
+	title = function() if data.type == 'capper' then %>@{capper_icon}<% else %>@{trackcap_icon}<% end end,
+	content = function() %>
+      <html width="${data.html.width}" height="${data.html.height}" align="middle,center" url="${data.html.url}" careAboutNativeVisibility="0" disableSilentMode="1"/>
+	<% end
+  }
+}
+%>
+
+<document>
+  %--<debug color="kaka" />
+  <% include("views/intro_style.xml") %>
+  <style>
+    textYes {
+      color: #fff;
+      text-shadow: #0a62a6 0 -1;
+    }
+    textNo {
+      color: #111111;
+      text-shadow: #d0d0d0 0 1;
+    }
+    textHeader {
+        align: left;
+        bold: 1;
+        size: 23;
+        color: #000;
+        face: arial;
+        margin: 30,20,10,11;
+        textshadow: #444 0 0;
+    }
+    textBody {
+      face: arial;
+      align: left;
+      size: 14;
+      bold: 0;
+      text-shadow: #fff 0 0;
+      margin: 30,0,40,20;
+      color: #444;
+      flex: 1;
+    }
+    fbPermissionHeaderMain {
+        face: tahoma;
+        align: left;
+        size: 16;
+        bold: 1;
+        text-shadow: #fff 0 0;
+        margin: 21,3,0,0;
+        color: #2a2a2a;
+        flex: 1;
+    }
+    fbPermissionHeaderSub {
+        face: tahoma;
+        align: left;
+        size: 13;
+        bold: 0;
+        text-shadow: #fff 0 0;
+        margin: 21,1,0,0;
+        color: #666;
+        flex: 1;
+    }
+    fbPermissionBodyMain {
+        face: tahoma;
+        align: left;
+        size: 13;
+        bold: 1;
+        text-shadow: #fff 0 0;
+        margin: 0,0,0,0;
+        color: #2a2a2a;
+        flex: 1;
+    }
+    fbPermissionBodySub {
+        face: tahoma;
+        align: left;
+        size: 11;
+        bold: 0;
+        text-shadow: #fff 0 0;
+        margin: 0,0,0,0;
+        color: #333333;
+        flex: 1;
+    }
+    fbPermissionListBullet {
+        margin: 3,6,10,0;
+        width: 4;
+        height: 4;
+        bgcolor: #333333;
+    }
+    fbPermissionListItem {
+        margin: 0,4,0,0;
+    }
+    fbPermissionBodyArea {
+        margin: 20,19,20,20;
+        width: 300;
+    }
+    fbPermissionBodyAreaMain {
+        face: tahoma;
+        align: left;
+        size: 11;
+        bold: 0;
+        text-shadow: #fff 0 0;
+        margin: 0,0,0,0;
+        color: #333333;
+        flex: 1;
+    }
+
+	textHeaderLink {
+		face: arial;
+		align: center, middle;
+		size: 18;
+		bold: 1;
+		color: #1166ff;
+	}
+    button {
+      face: arial;
+      size: 14;
+      height: 29;
+      align: right;
+      margin: 5,10,10,15;
+      bold: 1;
+    }
+    permissionItem {
+        margin: 0,8,0,8;
+    }
+    publishCheckbox {
+      textBody;
+      bold: 0;
+      margin: 5,0,13,0;
+      size:12;
+      color:#fff;
+      face:tahoma;
+    }
+    new-hulk-text {
+      face: arial;
+      size: 11;
+    }
+    new-hulk-legal {
+      new-hulk-text;
+      color: #8e949a;
+    }
+    new-hulk-header {
+      new-hulk-text;
+      color: #404a5e;
+      bold: 1;
+      size: 30;
+    }
+    new-hulk-subheader {
+      new-hulk-header;
+      color: #7b8392;
+      size: 14;
+    }
+    new-hulk-link {
+      new-hulk-text;
+      color: #606e7c;
+      bold: 1;
+      link-underline: 1;
+    }
+    new-hulk-legal-link {
+      new-hulk-text;
+      color: #5d6981;
+      link-underline: 1;
+    }
+    hulk_header {
+      face: arial;
+      bold: 1;
+      size: 28;
+      color: #ffffff;
+    }
+    hulk_header_small {
+      hulk_header;
+      size: 14;
+    }
+    login_text {
+      face: arial;
+      color: #26502c;
+      size: 12;
+    }
+    login_connect_account {
+      login_text;
+      bold: 1;
+      linespacing: 1.3;
+      text-shadow: #fff 0 0;
+    }
+    login_forgot_password {
+      login_text;
+      size: 12;
+    }
+    login_error_title {
+      login_text;
+      size:12;
+      bold:1;
+    }
+    login_error {
+      login_forgot_password;
+      size: 10;
+      color: #666;
+    }
+    terms_of_service {
+      login_text;
+      size: 10;
+      color: #666666;
+    }
+    terms_of_service_link {
+      terms_of_service;
+      color: #ffffff;
+    }
+    fb-button {
+      button;
+      face: tahoma;
+      size: 13;
+      height: 24;
+      margin: 0,0,4,0;
+    }
+    button-new {
+	    margin: 0,2,0,0;
+      height: 25;
+	    face: tahoma;
+	    size: 12;
+      align: center, middle;
+	  }
+    button-cancel {
+	    button-new;
+      color: #222;
+	    text-shadow: #ededed 0 1;
+    }
+    button-cancel-disabled {
+      button-cancel;
+      color: #aaa;
+    }
+    button-ok {
+	    button-new;
+	    color: #fff;
+	    text-shadow: #1a67a3 0 -1;
+	  }
+	  button-ok-disabled {
+	    button-ok;
+	    color: #aaa;
+	    text-shadow: #999 0 -1;
+	  }
+    hulk-button-ok {
+      button-ok;
+      size: 11;
+      bold: 1;
+    }
+    hulk-button-cancel {
+      button-cancel;
+      color: #424242;
+      size: 11;
+      bold: 1;
+    }
+    error_bubble_box {
+      bgcolor: #fff;
+    }
+    eula_link1 { size:11; bold:1; color:#222; margin:2,2,0,0; }
+  </style>
+  <style>
+   footer-button {
+      margin: 0,2,10,0;
+      face: tahoma;
+      size: 12;
+      height: 24;
+      align: center, middle;
+    }
+    footer-button-cancel {
+      footer-button;
+      color: #222;
+      text-shadow: #ededed 0 1;
+    }
+    footer-button-cancel-disabled {
+      footer-button-cancel;
+      color: #aaa;
+    }
+    footer-button-ok {
+      footer-button;
+      color: #fff;
+      text-shadow: #1a67a3 0 -1;
+    }
+   footer-button-ok-disabled {
+      footer-button-ok;
+      color: #aaa;
+      text-shadow: #999 0 -1;
+    }
+  </style>
+
+  <% include("views/generic_lightbox.xml") %>
+</document>
