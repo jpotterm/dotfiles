@@ -1,21 +1,21 @@
 #!/bin/bash
 
-brew install bash python3
+#brew install bash python3
+#
+#brew cask install google-chrome
+#brew cask install firefox
+#brew cask install blender
+#brew cask install spectacle
+#brew cask install seil
+#brew cask install thunderbird
+#brew cask install appcleaner
+#brew cask install android-file-transfer
+#brew cask install macvim
+#brew cask install flycut
 
-brew cask install google-chrome
-brew cask install firefox
-brew cask install blender
-brew cask install spectacle
-brew cask install seil
-brew cask install thunderbird
-brew cask install appcleaner
-brew cask install android-file-transfer
-brew cask install macvim
-brew cask install flycut
 
-
-bash ./lib/spotify.bash
-bash ./lib/settings.bash
+#bash ./lib/spotify.bash
+#bash ./lib/settings.bash
 bash ./lib/link.bash
 
 

@@ -1,16 +1,16 @@
-ln -s ~/.vim ../config/vim/vim
-ln -s ~/.vimrc ../config/vim/vimrc
-ln -s ~/.vimrc.d ../config/vim/vimrc.d
+ln -sfh "$PWD"/config/vim/vim ~/.vim
+ln -sfh "$PWD"/config/vim/vimrc ~/.vimrc
+ln -sfh "$PWD"/config/vim/vimrc.d ~/.vimrc.d
 
 mkdir -p ~/.config/nvim
-ln -s ~/.config/nvim/init.vim ~/.vimrc
+ln -sfh ~/.vimrc ~/.config/nvim/init.vim
 
-ln -s ~/.gvimrc ../config/vim/gvimrc
+ln -sfh "$PWD"/config/vim/gvimrc ~/.gvimrc
 
-ln -s ~/.isort.cfg ../config/isort/isort.cfg
+ln -sfh "$PWD"/config/isort/isort.cfg ~/.isort.cfg
 
-ln -s ~/.hgrc ../config/mercurial/hgrc
-ln -s ~/.hgignore_global ../config/mercurial/hgignore_global
+ln -sfh "$PWD"/config/mercurial/hgrc ~/.hgrc
+ln -sfh "$PWD"/config/mercurial/hgignore_global ~/.hgignore_global
 
-ln -s ~/.gitconfig ../config/git/gitconfig
-ln -s ~/.gitignore_global ../config/git/gitignore_global
+ln -sfh "$PWD"/config/git/gitconfig ~/.gitconfig
+ln -sfh "$PWD"/config/git/gitignore_global ~/.gitignore_global
