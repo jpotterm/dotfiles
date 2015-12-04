@@ -8,7 +8,7 @@ defaults write com.apple.LaunchServices LSQuarantine -bool NO
 defaults write com.apple.systemsound "com.apple.sound.uiaudio.enabled" -int 0
 
 # Turn off terminal beep
-#defaults write -g "com.apple.sound.beep.feedback" -int 0
+defaults write NSGlobalDomain "com.apple.sound.beep.feedback" -int 0
 
 # Fast key repeat (lower is faster)
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
@@ -38,6 +38,24 @@ defaults write com.apple.Finder FXPreferredViewStyle clmv
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 
+# Three finger swipe
+defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
+
+# Show file extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Disable subpixel antialiasing
+defaults write NSGlobalDomain AppleFontSmoothing -int 0
+
+# Scroll to point clicked on scrollbar
+defaults write NSGlobalDomain AppleScrollerPagingBehavior -bool true
+
+# Show ~/Library folder
+chflags nohidden ~/Library
+
+# Disable file extension change warning
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
 
 
 # Hide Safari's bookmark bar
@@ -46,3 +64,7 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 # Set up Safari for development
 # defaults write com.apple.Safari IncludeDevelopMenu -bool true
 # defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
+
+
+# List all defaults
+# defaults read

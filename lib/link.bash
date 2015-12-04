@@ -2,8 +2,8 @@ ln -s ~/.vim ../config/vim/vim
 ln -s ~/.vimrc ../config/vim/vimrc
 ln -s ~/.vimrc.d ../config/vim/vimrc.d
 
-ln -s ~/.nvim ../config/vim/vim
-ln -s ~/.nvimrc ../config/vim/vimrc
+mkdir -p ~/.config/nvim
+ln -s ~/.config/nvim/init.vim ~/.vimrc
 
 ln -s ~/.gvimrc ../config/vim/gvimrc
 

@@ -22,3 +22,5 @@ bash ./lib/link.bash
 # Todo
 #  sign into chrome
 #  export terminal preferences
+#  transfer SSH key
+#  iOS simulator
