@@ -318,7 +318,7 @@ elseif borders[max(keys(borders))] == 'colon'
 	elseif prop == 'vertical-align'
 		let values = ["baseline", "sub", "super", "top", "text-top", "middle", "bottom", "text-bottom"]
 	elseif prop == 'visibility'
-		let values = ["visible", "hidden", "collapse"]
+		let values = ["inherit", "visible", "hidden", "collapse"]
 	elseif prop == 'voice-family'
 		return []
 	elseif prop == 'volume'

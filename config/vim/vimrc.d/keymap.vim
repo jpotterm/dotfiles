@@ -14,6 +14,9 @@ nnoremap Y y$
 " Really unfold all
 nnoremap <silent> zR :setlocal foldlevel=20<CR>
 
+" Ignore Shift-K
+noremap K <Nop>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctrl mappings
