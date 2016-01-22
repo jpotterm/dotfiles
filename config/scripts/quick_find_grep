@@ -1,3 +1,3 @@
 #!/bin/bash
 
-find . -name "$1" -exec grep -H "$2" {} \;
+find . -ipath "$1" -exec grep -H "$2" {} \;
