@@ -14,13 +14,11 @@ set runtimepath^=$HOME/.vim/bundle/my_completions
 set runtimepath^=$HOME/.vim/bundle/my_disabled_indents
 set runtimepath^=$HOME/.vim/bundle/neovim_clipboard
 set runtimepath^=$HOME/.vim/bundle/nerdtree
+set runtimepath^=$HOME/.vim/bundle/puppet_syntax
 set runtimepath^=$HOME/.vim/bundle/repeat
 set runtimepath^=$HOME/.vim/bundle/surround
 set runtimepath^=$HOME/.vim/bundle/taboo
 set runtimepath^=$HOME/.vim/bundle/titlecase
-set runtimepath^=$HOME/.vim/bundle/puppet_syntax
-" set runtimepath^=$HOME/.vim/bundle/syntastic
-" set runtimepath^=$HOME/.vim/bundle/you_complete_me
 
 if has("gui_running")
     " Doesn't work with neovim yet
