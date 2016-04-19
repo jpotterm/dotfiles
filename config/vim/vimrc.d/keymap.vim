@@ -17,6 +17,9 @@ nnoremap <silent> zR :setlocal foldlevel=20<CR>
 " Ignore Shift-K
 noremap K <Nop>
 
+" Ignore Q (Ex mode)
+noremap Q <Nop>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctrl mappings

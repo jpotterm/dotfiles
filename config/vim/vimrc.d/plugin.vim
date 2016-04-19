@@ -1,6 +1,7 @@
 let g:ctrlp_map = ''
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
     \ 'file': '\v\.(pyc|aux|bbl|blg|fdb_latexmk|lof|log|lot|toc|out|synctex\.gz)$',
     \ }
 
@@ -16,7 +17,7 @@ autocmd FileType htmldjango let b:surround_{char2nr("-")} = "{% \1Tag name: \1 %
 let g:surround_indent = 0
 
 " NERDTree
-let NERDTreeIgnore = ['\.pyc$', '\.swp$', '^\.DS_Store$', '^\.git$', '^\.hg$', '\.orig$', '^\.vagrant$', '^__pycache__$']
+let NERDTreeIgnore = ['\.pyc$', '\.swp$', '^\.DS_Store$', '^\.git$', '^\.hg$', '\.orig$', '^\.vagrant$', '^__pycache__$', '^node_modules$']
 let NERDTreeShowHidden = 1
 let NERDTreeAutoDeleteBuffer = 1
 

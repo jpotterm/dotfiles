@@ -1,6 +1,6 @@
 snippet init "__init__" b
 def __init__(self, *args, **kwargs):
-	super($1, self).__init__(*args, **kwargs)
+	super().__init__(*args, **kwargs)
 endsnippet
 
 snippet future "Import compatibility things from future" b
@@ -8,7 +8,7 @@ from __future__ import ${1:division, }${2:print_function, }${3:unicode_literals}
 endsnippet
 
 snippet super "Super" b
-super(${1:ClassName}, self).${2:method}($3)
+super().${1:method}($2)
 endsnippet
 
 snippet detail_view "Detail view" b
