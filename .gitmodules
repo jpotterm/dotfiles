@@ -37,12 +37,12 @@
 [submodule "vim/vim/bundle/you_complete_me"]
 	path = config/vim/vim/bundle/you_complete_me
 	url = git@github.com:Valloric/YouCompleteMe.git
-[submodule "vim/vim/bundle/nerdtree_tabs"]
-	path = config/vim/vim/bundle/nerdtree_tabs
-	url = git@github.com:jistr/vim-nerdtree-tabs.git
 [submodule "vim/vim/bundle/taboo"]
 	path = config/vim/vim/bundle/taboo
 	url = git@github.com:gcmt/taboo.vim.git
 [submodule "vim/vim/bundle/titlecase"]
 	path = config/vim/vim/bundle/titlecase
 	url = git@github.com:christoomey/vim-titlecase.git
+[submodule "config/vim/vim/bundle/puppet_syntax"]
+	path = config/vim/vim/bundle/puppet_syntax
+	url = git@github.com:puppetlabs/puppet-syntax-vim.git
