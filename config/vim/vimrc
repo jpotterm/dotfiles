@@ -8,6 +8,7 @@ set runtimepath^=$HOME/.vim/bundle/commentary
 set runtimepath^=$HOME/.vim/bundle/ctrlp
 set runtimepath^=$HOME/.vim/bundle/easymotion
 set runtimepath^=$HOME/.vim/bundle/emmet
+set runtimepath^=$HOME/.vim/bundle/exchange
 set runtimepath^=$HOME/.vim/bundle/gnupg
 set runtimepath^=$HOME/.vim/bundle/indent_object
 set runtimepath^=$HOME/.vim/bundle/my_completions

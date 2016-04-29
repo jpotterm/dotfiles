@@ -32,6 +32,11 @@ PLUGINS = [
         'commit': '920904c53b1b426f83a4ad9729e004ac19675f50',
     },
     {
+        'directory': 'exchange',
+        'repo': 'git@github.com:tommcdo/vim-exchange.git',
+        'commit': '9373a8471cd968e5e4605c3487f80c9364d412b2',
+    },
+    {
         'directory': 'gnupg',
         'repo': 'git@github.com:jamessan/vim-gnupg.git',
         'commit': '40cec4652cbd4f6d2d55fa8ae77db5598386da97',
