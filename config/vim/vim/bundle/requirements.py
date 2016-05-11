@@ -47,6 +47,11 @@ PLUGINS = [
         'commit': '78fffa609b3e6b84ef01ee4c9aba6d7435d7b18e',
     },
     {
+        'directory': 'line_object',
+        'repo': 'git@github.com:kana/vim-textobj-line.git',
+        'commit': '0a78169a33c7ea7718b9fa0fad63c11c04727291',
+    },
+    {
         'directory': 'nerdtree',
         'repo': 'git@github.com:scrooloose/nerdtree.git',
         'commit': '4f1e6ecb057fc0bac189171c1430d71ef25f6bb1',
@@ -80,6 +85,11 @@ PLUGINS = [
         'directory': 'ultisnips',
         'repo': 'git@github.com:SirVer/ultisnips.git',
         'commit': 'f95ce290bc6394d25cd51d0db2e197cd14d6d07b',
+    },
+    {
+        'directory': 'user_object',
+        'repo': 'git@github.com:kana/vim-textobj-user.git',
+        'commit': 'a3054162c09bcf732624f43ddacbd85dad09713b',
     },
 ]
 
