@@ -67,6 +67,11 @@ PLUGINS = [
         'commit': '2a3c5f8e3c26a57b8eb4cfc4be79615a1c508ef6',
     },
     {
+        'directory': 'rust',
+        'repo': 'git@github.com:rust-lang/rust.vim.git',
+        'commit': '115d321d383eb96d438466c56cc871fcc1bd0faa',
+    },
+    {
         'directory': 'surround',
         'repo': 'git@github.com:tpope/vim-surround.git',
         'commit': 'fa433e0b7330753688f715f3be5d10dc480f20e5',
