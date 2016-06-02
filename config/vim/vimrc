@@ -6,7 +6,7 @@ endif
 set runtimepath^=$HOME/.vim/bundle/colors_solarized
 set runtimepath^=$HOME/.vim/bundle/commentary
 set runtimepath^=$HOME/.vim/bundle/ctrlp
-set runtimepath^=$HOME/.vim/bundle/easymotion
+set runtimepath^=$HOME/.vim/bundle/easy_motion
 set runtimepath^=$HOME/.vim/bundle/emmet
 set runtimepath^=$HOME/.vim/bundle/exchange
 set runtimepath^=$HOME/.vim/bundle/gnupg
@@ -20,6 +20,7 @@ set runtimepath^=$HOME/.vim/bundle/puppet_syntax
 set runtimepath^=$HOME/.vim/bundle/repeat
 set runtimepath^=$HOME/.vim/bundle/rust
 set runtimepath^=$HOME/.vim/bundle/surround
+set runtimepath^=$HOME/.vim/bundle/sneak
 set runtimepath^=$HOME/.vim/bundle/taboo
 set runtimepath^=$HOME/.vim/bundle/titlecase
 set runtimepath^=$HOME/.vim/bundle/user_object " Required by line_object
@@ -39,3 +40,4 @@ source ~/.vimrc.d/keymap.vim
 source ~/.vimrc.d/command.vim
 source ~/.vimrc.d/autocmd.vim
 source ~/.vimrc.d/function.vim
+source ~/.vimrc.d/color.vim

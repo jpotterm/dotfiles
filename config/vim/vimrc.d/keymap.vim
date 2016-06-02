@@ -1,4 +1,4 @@
-let mapleader = ","
+map <Space> <Leader>
 
 " Mac terminal interprets C-Space as C-@
 inoremap <C-Space> <C-X><C-O>

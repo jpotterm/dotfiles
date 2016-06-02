@@ -22,11 +22,6 @@ PLUGINS = [
         'commit': 'b5d3fe66a58a13d2ff8b6391f4387608496a030f',
     },
     {
-        'directory': 'easy_motion',
-        'repo': 'git@github.com:Lokaltog/vim-easymotion.git',
-        'commit': '0349345042a1750a10f1bbbc7061c43fe76e36fd',
-    },
-    {
         'directory': 'emmet',
         'repo': 'git@github.com:mattn/emmet-vim.git',
         'commit': '920904c53b1b426f83a4ad9729e004ac19675f50',
@@ -70,6 +65,11 @@ PLUGINS = [
         'directory': 'rust',
         'repo': 'git@github.com:rust-lang/rust.vim.git',
         'commit': '115d321d383eb96d438466c56cc871fcc1bd0faa',
+    },
+    {
+        'directory': 'sneak',
+        'repo': 'git@github.com:justinmk/vim-sneak.git',
+        'commit': '9873146feadd4f172a8d8346cb8058ed79bdd3e7',
     },
     {
         'directory': 'surround',
