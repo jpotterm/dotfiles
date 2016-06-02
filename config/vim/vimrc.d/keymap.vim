@@ -67,48 +67,41 @@ cnoremap $d <CR>:d<CR>``
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " CtrlP
-nnoremap <silent> <leader>f :CtrlP<CR>
-nnoremap <silent> <leader>b :CtrlPBuffer<CR>
+nnoremap <silent> <Leader>f :CtrlP<CR>
+nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 
 " Save shortcut
-nnoremap <silent> <leader>w :write<CR>
+nnoremap <silent> <Leader>w :write<CR>
 
 " Duplicate line
-nnoremap <silent> <leader>d yyPj
-vnoremap <silent> <leader>d yP`<
+nnoremap <silent> <Leader>d yyPj
+vnoremap <silent> <Leader>d yP`<
 
 " Toggle NERDTree
-nnoremap <silent> <leader>t :call WorkaroundNERDTreeToggle()<CR>
-" nnoremap <silent> <leader>t :NERDTreeTabsToggle<CR>
+nnoremap <silent> <Leader>t :call WorkaroundNERDTreeToggle()<CR>
 
 " Delete current buffer
-nnoremap <silent> <leader>c :bd<CR>
+nnoremap <silent> <Leader>c :bd<CR>
 
 " Delete all buffers
-nnoremap <leader><S-C> :1,2000 bd<CR>
+nnoremap <Leader><S-C> :1,2000 bd<CR>
 
 " Toggle search highlighting
-nnoremap <silent> <leader>/ :set hlsearch! hlsearch?<CR>
+nnoremap <silent> <Leader>/ :set hlsearch! hlsearch?<CR>
 
 " Toggle diff mode
-nnoremap <silent> <leader>i :call ToggleDiff()<CR>
+nnoremap <silent> <Leader>i :call ToggleDiff()<CR>
 
 " Sort python imports
-nnoremap <silent> <leader>gi :%!isort -<CR>
+nnoremap <silent> <Leader>gi :%!isort -<CR>
 
 " Format file
-nnoremap <silent> <leader>gf :call FormatFile()<CR>
+nnoremap <silent> <Leader>gf :call FormatFile()<CR>
 
 " Titlecase
-nmap <silent> <leader>gt <Plug>Titlecase
-vmap <silent> <leader>gt <Plug>Titlecase
-
-" Easy motion
-map <leader>ew <Plug>(easymotion-w)
-map <leader>eb <Plug>(easymotion-b)
-map <leader>el <Plug>(easymotion-lineforward)
-map <leader>eh <Plug>(easymotion-linebackward)
+nmap <silent> <Leader>gt <Plug>Titlecase
+vmap <silent> <Leader>gt <Plug>Titlecase
 
 " Syntastic
-nnoremap <silent> <leader>sc :SyntasticCheck<CR>
-nnoremap <silent> <leader>sr :SyntasticReset<CR>
+nnoremap <silent> <Leader>sc :SyntasticCheck<CR>
+nnoremap <silent> <Leader>sr :SyntasticReset<CR>
