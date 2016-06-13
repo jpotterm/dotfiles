@@ -1,0 +1,22 @@
+export PATH="$HOME/Data/scripts:$HOME/Library/Haskell/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export JAVA_HOME="`/usr/libexec/java_home`"
+
+export PS1="\[\e[0;36m\]\w\[\e[m\] \[\e[0;32m\]\$\[\e[m\] "
+export CLICOLOR=1
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../..'
+alias ......='cd ../../../..'
+alias .......='cd ../../../../..'
+alias ........='cd ../../../../../..'
+alias .........='cd ../../../../../../..'
+alias ..........='cd ../../../../../../../..'
+alias ...........='cd ../../../../../../../../..'
+alias ............='cd ../../../../../../../../../..'
+alias .............='cd ../../../../../../../../../../..'
+
+stty -ixon
+
+unset MAILCHECK

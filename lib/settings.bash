@@ -1,3 +1,7 @@
+# List all defaults
+# defaults read
+
+
 # Install apps from anywhere
 sudo spctl --master-disable
 
@@ -18,9 +22,10 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Start at login
-osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"$HOME/Applications/Spectacle.app\", hidden:false}"
+osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"/Applications/Spectacle.app\", hidden:false}"
 osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"/Applications/Seil.app\", hidden:false}"
 osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"/Applications/Flycut.app\", hidden:false}"
+osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"/Applications/BetterTouchTool.app\", hidden:false}"
 
 # Dock preferences
 osascript -e '
@@ -64,7 +69,3 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Set up Safari for development
 # defaults write com.apple.Safari IncludeDevelopMenu -bool true
 # defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
-
-
-# List all defaults
-# defaults read

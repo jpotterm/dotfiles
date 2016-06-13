@@ -1,26 +1,18 @@
 #!/bin/bash
 
-brew install bash python3
-
-brew cask install google-chrome
-brew cask install firefox
-brew cask install blender
-brew cask install spectacle
-brew cask install seil
-brew cask install thunderbird
-brew cask install appcleaner
-brew cask install android-file-transfer
-brew cask install macvim
-brew cask install flycut
+brew update
+brew install bash python3 neovim/neovim/neovim
 
 
-bash ./lib/spotify.bash
+bash ./lib/applications.bash
 bash ./lib/settings.bash
 bash ./lib/link.bash
 
 
-# Todo
-#  sign into chrome
-#  export terminal preferences
-#  transfer SSH key
-#  iOS simulator
+# Manually
+#     Install XCode
+#     Transfer SSH key
+#     Transfer WiFi keychain
+#     Import terminal preferences from config/terminal/custom.terminal
+#     Sign into chrome
+#     Install Adobe CS6: https://helpx.adobe.com/x-productkb/policy-pricing/cs6-product-downloads.html

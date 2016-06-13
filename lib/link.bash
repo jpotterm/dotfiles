@@ -1,3 +1,5 @@
+ln -sfh "$PWD"/config/bash/bashrc ~/.bashrc
+
 ln -sfh "$PWD"/config/vim/vim ~/.vim
 ln -sfh "$PWD"/config/vim/vimrc ~/.vimrc
 ln -sfh "$PWD"/config/vim/vimrc.d ~/.vimrc.d
