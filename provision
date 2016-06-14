@@ -12,7 +12,10 @@ bash ./lib/link.bash
 # Manually
 #     Install XCode
 #     Transfer SSH key
-#     Transfer WiFi keychain
+#     Transfer WiFi networks
+#         security dump-keychain -d /Library/Keychains/System.keychain > output.txt
+#         Open "System Preferences > Network > Advanced" and add all the networks manually
+#     Transfer Thunderbird profile from ~/Library/Thunderbird/Profiles
 #     Import terminal preferences from config/terminal/custom.terminal
 #     Sign into chrome
 #     Install Adobe CS6: https://helpx.adobe.com/x-productkb/policy-pricing/cs6-product-downloads.html

@@ -14,6 +14,9 @@ defaults write com.apple.systemsound "com.apple.sound.uiaudio.enabled" -int 0
 # Turn off terminal beep
 defaults write NSGlobalDomain "com.apple.sound.beep.feedback" -int 0
 
+# Enable tap to click
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
 # Fast key repeat (lower is faster)
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 defaults write NSGlobalDomain KeyRepeat -int 2

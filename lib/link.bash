@@ -6,6 +6,7 @@ ln -sfh "$PWD"/config/vim/vimrc.d ~/.vimrc.d
 
 mkdir -p ~/.config/nvim
 ln -sfh ~/.vimrc ~/.config/nvim/init.vim
+ln -sfh /usr/local/bin/nvim /usr/local/bin/vi
 
 ln -sfh "$PWD"/config/vim/gvimrc ~/.gvimrc
 

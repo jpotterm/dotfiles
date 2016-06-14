@@ -22,14 +22,14 @@ brew cask install vlc
 brew cask install xquartz
 
 
-bash ./spotify.bash
+bash ./lib/spotify.bash
 
 ln -sfh /Applications/Xcode.app/Contents/Applications/FileMerge.app /Applications/
 
 if [[ ! -d "/Applications/iOS Simulator.app" ]]; then
-    cp -a "../resources/iOS Simulator.app" /Applications/
+    cp -a "./resources/iOS Simulator.app" /Applications/
 fi
 
 if [[ ! -d /Applications/Lorem.app ]]; then
-    cp -a ../resources/Lorem.app /Applications/
+    cp -a ./resources/Lorem.app /Applications/
 fi
