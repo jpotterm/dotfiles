@@ -1,7 +1,10 @@
 #!/bin/bash
 
 brew update
-brew install bash python3 neovim/neovim/neovim
+brew install bash python3 neovim/neovim/neovim npm
+
+
+npm install -g svgo yo
 
 
 bash ./lib/applications.bash

@@ -9,7 +9,6 @@ pager = LESS='FSRX' less
 bookmarks =
 color =
 graphlog =
-hggit =
 histedit =
 mq =
 pager =
