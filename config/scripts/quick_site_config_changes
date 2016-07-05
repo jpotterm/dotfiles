@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo 'You must provide the number of commits as an argument'
+    exit 255
+fi
+
+let commits=$1-1
+
+files=$(hg log -r tip:tip~$commits --template '{files}\n' | tr ' ' '\n')
+
+echo -n "$files" | grep -q '/migrations/'
+has_migrations=$?
+
+echo -n "$files" | grep -q 'requirements.txt'
+has_requirements=$?
+
+if [ $has_migrations -eq 0 ]
+then
+    echo 'Migrations changed'
+fi
+
+if [ $has_requirements -eq 0 ]
+then
+    echo 'Requirements changed'
+fi
