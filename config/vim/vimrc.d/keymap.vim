@@ -1,4 +1,5 @@
-map <Space> <Leader>
+let mapleader = "\<Space>"
+nnoremap <Space> <Nop>
 
 " Mac terminal interprets C-Space as C-@
 inoremap <C-Space> <C-X><C-O>
