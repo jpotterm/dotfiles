@@ -26,3 +26,6 @@ Thumbs.db
 # General
 *.pyc
 *.swp
+
+# Node.js
+node_modules

@@ -22,6 +22,11 @@ PLUGINS = [
         'commit': 'b5d3fe66a58a13d2ff8b6391f4387608496a030f',
     },
     {
+        'directory': 'elm',
+        'repo': 'git@github.com:lambdatoast/elm.vim.git',
+        'commit': '04df290781f8a8a9a800e568262e0f2a077f503e',
+    },
+    {
         'directory': 'emmet',
         'repo': 'git@github.com:mattn/emmet-vim.git',
         'commit': '920904c53b1b426f83a4ad9729e004ac19675f50',

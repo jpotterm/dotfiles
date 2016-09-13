@@ -6,6 +6,7 @@ endif
 set runtimepath^=$HOME/.vim/bundle/colors_solarized
 set runtimepath^=$HOME/.vim/bundle/commentary
 set runtimepath^=$HOME/.vim/bundle/ctrlp
+set runtimepath^=$HOME/.vim/bundle/elm
 set runtimepath^=$HOME/.vim/bundle/emmet
 set runtimepath^=$HOME/.vim/bundle/exchange
 set runtimepath^=$HOME/.vim/bundle/gnupg
