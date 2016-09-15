@@ -14,6 +14,7 @@ set shiftwidth=4                  " Number of auto-indent spaces
 set smarttab                      " Enable smart-tabs
 set tabstop=4                     " Displayed width of tabs
 set softtabstop=4                 " Number of spaces per Tab
+set breakindent                   " Keep wrapped lines at same level
 
 syntax on                         " Syntax highlighting
 set t_Co=256                      " Enable 256-color mode
