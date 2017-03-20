@@ -44,6 +44,10 @@ cnoremap $m <CR>:m''<CR>
 cnoremap $M <CR>:M''<CR>
 cnoremap $d <CR>:d<CR>``
 
+" In visual mode, always paste from register 0 so that it's easy to paste the
+" same thing multiple times.
+vnoremap P "0p
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader mappings

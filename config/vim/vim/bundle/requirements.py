@@ -72,9 +72,14 @@ PLUGINS = [
         'commit': '115d321d383eb96d438466c56cc871fcc1bd0faa',
     },
     {
+        'directory': 'salt',
+        'repo': 'git@github.com:saltstack/salt-vim.git',
+        'commit': '5b15d379fbcbb84f82c6a345abc08cea9d374be9',
+    },
+    {
         'directory': 'sneak',
         'repo': 'git@github.com:justinmk/vim-sneak.git',
-        'commit': '9873146feadd4f172a8d8346cb8058ed79bdd3e7',
+        'commit': '1734d847d008caca16609cf128ff8ea6372c6b25',
     },
     {
         'directory': 'surround',

@@ -26,7 +26,7 @@ set foldlevelstart=20             " Don't fold by default
 
 set wildmenu
 set wildmode=longest:list         " Make wildmenu completion more like bash
-set wildignore=*.pyc,*.swp,.DS_Store,*.orig,.git,**/.git/**,.hg,**/.hg/**,.vagrant,**/.vagrant/**,node_modules,**/node_modules/**,elm-stuff,**/elm-stuff/**,bower_components,**/bower_components/**,__pycache__,**/__pycache__/**
+set wildignore=*.pyc,*.swp,.DS_Store,*.orig,.git,**/.git/**,.hg,**/.hg/**,.vagrant,**/.vagrant/**,node_modules,**/node_modules/**,elm-stuff,**/elm-stuff/**,bower_components,**/bower_components/**,vendor,**/vendor/**,__pycache__,**/__pycache__/**
 
 
 set number                        " Show line numbers
