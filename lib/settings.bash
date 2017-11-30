@@ -28,7 +28,6 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"/Applications/Spectacle.app\", hidden:false}"
 osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"/Applications/Seil.app\", hidden:false}"
 osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"/Applications/Flycut.app\", hidden:false}"
-osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"/Applications/BetterTouchTool.app\", hidden:false}"
 
 # Dock preferences
 osascript -e '

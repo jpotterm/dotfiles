@@ -1,7 +1,7 @@
 #!/bin/bash
 
 brew update
-brew install bash python3 neovim/neovim/neovim npm
+brew install bash python3 neovim/neovim/neovim npm rust
 
 
 npm install -g svgo yo
@@ -11,14 +11,16 @@ bash ./lib/applications.bash
 bash ./lib/settings.bash
 bash ./lib/link.bash
 
-
-# Manually
+# Manually before
+#     Install homebrew
+#         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 #     Install XCode
 #     Transfer SSH key
+
+# Manually after
 #     Transfer WiFi networks
 #         security dump-keychain -d /Library/Keychains/System.keychain > output.txt
 #         Open "System Preferences > Network > Advanced" and add all the networks manually
 #     Transfer Thunderbird profile from ~/Library/Thunderbird/Profiles
 #     Import terminal preferences from config/terminal/custom.terminal
 #     Sign into chrome
-#     Install Adobe CS6: https://helpx.adobe.com/x-productkb/policy-pricing/cs6-product-downloads.html

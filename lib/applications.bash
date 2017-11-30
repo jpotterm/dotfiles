@@ -1,11 +1,6 @@
 brew cask install android-file-transfer
 brew cask install appcleaner
-brew cask install bettertouchtool
 brew cask install blender
-brew cask install cyberduck
-brew cask install dash
-brew cask install disk-inventory-x
-brew cask install firefox
 brew cask install flycut
 brew cask install google-chrome
 brew cask install macvim
@@ -21,8 +16,6 @@ brew cask install transmission
 brew cask install vlc
 brew cask install xquartz
 
-
-bash ./lib/spotify.bash
 
 ln -sfh /Applications/Xcode.app/Contents/Applications/FileMerge.app /Applications/
 

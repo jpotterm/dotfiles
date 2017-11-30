@@ -1,4 +1,0 @@
-FOO	files/tags/foo.h	1;"	d
-baz	files/tags/baz.c	/^void baz(void)$/
-foo	files/tags/foo.c	/^int foo(void)$/
-foo	files/tags/foo.c	/^int foo(int)$/
