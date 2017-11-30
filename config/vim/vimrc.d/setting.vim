@@ -32,11 +32,11 @@ set wildignore=*.pyc,*.swp,.DS_Store,*.orig,.git,**/.git/**,.hg,**/.hg/**,.vagra
 set number                        " Show line numbers
 set linebreak                     " Break lines at word (requires Wrap lines)
 set visualbell                    " Use visual bell (no beeping)
-set noesckeys                     " Make Escape key respond immediately
 set ruler                         " Show row and column ruler information
 set undolevels=1000               " Number of undo levels
 set encoding=utf-8
 set lazyredraw                    " Don't update display while executing macros
+set ttyfast
 set autoread                      " Auto update if file has changed outside Vim
 set showcmd                       " Show current command on status line
 set backspace=indent,start        " Backspace over indent and insert start
@@ -47,3 +47,7 @@ set display=lastline              " Show long lines instead of hiding them with 
 set foldopen=hor,mark,percent,quickfix,tag,undo
 set gdefault                      " Substitute all occurrences by default
 " set completeopt=menu,preview,longest " Complete longest common prefix
+
+if !has('nvim')
+    set noesckeys                     " Make Escape key respond immediately
+endif

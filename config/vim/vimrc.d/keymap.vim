@@ -21,6 +21,10 @@ noremap K <Nop>
 " Ignore Q (Ex mode)
 noremap Q <Nop>
 
+" Always search case sensitively with *
+nnoremap * /\C\<<C-R>=expand('<cword>')<CR>\><CR>
+nnoremap # viwo<ESC>?\C\<<C-R>=expand('<cword>')<CR>\><CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctrl mappings

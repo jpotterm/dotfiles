@@ -4,7 +4,7 @@ function! CssPrefix(...)
 endfunction
 
 function! FormatFile()
-    if &ft == 'javascript'
+    if &ft == 'json'
         :%!python -m json.tool
     elseif &ft == 'xml'
         :%!tidy -i -xml -wrap 0 -config <(echo -e 'indent-spaces: 4') 2>/dev/null

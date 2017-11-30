@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pipenv lock -r | sed "s/^/- '/" | sed "s/ --hash=.*//" | sed "s/$/'/"
+
+# Cleanup
+pipenv --rm
+rm Pipfile.lock
