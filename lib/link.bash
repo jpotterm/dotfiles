@@ -1,4 +1,7 @@
+set -x
+
 ln -sfh "$PWD"/config/bash/bashrc ~/.bashrc
+ln -sfh "$PWD"/config/bash/profile ~/.profile
 
 ln -sfh "$PWD"/config/vim/vim ~/.vim
 ln -sfh "$PWD"/config/vim/vimrc ~/.vimrc

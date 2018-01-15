@@ -22,6 +22,11 @@ PLUGINS = [
         'commit': 'b5d3fe66a58a13d2ff8b6391f4387608496a030f',
     },
     {
+        'directory': 'dart',
+        'repo': 'git@github.com:dart-lang/dart-vim-plugin.git',
+        'commit': '8404686b55685664fbc9912ef4bb34d8d29478fe',
+    },
+    {
         'directory': 'elm',
         'repo': 'git@github.com:lambdatoast/elm.vim.git',
         'commit': '04df290781f8a8a9a800e568262e0f2a077f503e',

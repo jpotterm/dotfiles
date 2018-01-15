@@ -1,21 +1,4 @@
-brew cask install android-file-transfer
-brew cask install appcleaner
-brew cask install blender
-brew cask install flycut
-brew cask install google-chrome
-brew cask install macvim
-brew cask install plain-clip
-brew cask install reaper
-brew cask install seil
-brew cask install sketch
-brew cask install skyfonts
-brew cask install slack
-brew cask install spectacle
-brew cask install thunderbird
-brew cask install transmission
-brew cask install vlc
-brew cask install xquartz
-
+set -x
 
 ln -sfh /Applications/Xcode.app/Contents/Applications/FileMerge.app /Applications/
 

@@ -2,28 +2,6 @@
 ignore = ~/.hgignore_global
 username = Jonathan Potter <jon@dwaiter.com>
 
-[pager]
-pager = LESS='FSRX' less
-
-[extensions]
-bookmarks =
-color =
-graphlog =
-histedit =
-mq =
-pager =
-progress =
-purge =
-record =
-schemes =
-transplant =
-extdiff =
-
-[extdiff]
-cmd.fmdiff = fmdiff
-cmd.vimdiff = mvim
-opts.vimdiff = -f -d
-
 [alias]
 st = status
 br = branches

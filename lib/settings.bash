@@ -1,3 +1,5 @@
+set -x
+
 # List all defaults
 # defaults read
 
@@ -26,7 +28,6 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Start at login
 osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"/Applications/Spectacle.app\", hidden:false}"
-osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"/Applications/Seil.app\", hidden:false}"
 osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"/Applications/Flycut.app\", hidden:false}"
 
 # Dock preferences
@@ -63,6 +64,17 @@ chflags nohidden ~/Library
 # Disable file extension change warning
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
+# Use homebrew's bash as default login shell
+sudo bash -c 'cat >/etc/shells <<EOL
+/bin/bash
+/bin/csh
+/bin/ksh
+/bin/sh
+/bin/tcsh
+/bin/zsh
+/usr/local/bin/bash
+EOL'
+chsh -s /usr/local/bin/bash
 
 
 # Hide Safari's bookmark bar

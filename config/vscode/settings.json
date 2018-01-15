@@ -1,0 +1,140 @@
+{
+    "editor.colorDecorators": false,
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "underline",
+    "editor.find.autoFindInSelection": true,
+    "editor.find.globalFindClipboard": false,
+    "editor.find.seedSearchStringFromSelection": false,
+    "editor.fontFamily": "Roboto Mono",
+    "editor.fontSize": 11,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.lineHeight": 18,
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": false,
+    "editor.parameterHints": false,
+    "editor.roundedSelection": false,
+    "editor.selectionHighlight": false,
+    "editor.wordWrap": "on",
+
+    "explorer.confirmDragAndDrop": false,
+    "explorer.openEditors.visible": 0,
+
+    "extensions.ignoreRecommendations": true,
+
+    "files.associations": {
+        "*.sls": "yaml"
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/*.orig": true,
+        "node_modules": true,
+        ".vagrant": true,
+        "**/__pycache__": true,
+        ".expo": true,
+    },
+    "files.hotExit": "off",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+
+    "python.linting.enabled": false,
+    "python.unitTest.promptToConfigure": false,
+
+    "search.exclude": {},
+
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+
+    "vim.cursorStylePerMode": {
+        "normal": "underline",
+        "insert": "line",
+    },
+    "vim.hlsearch": false,
+    "vim.leader": " ",
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["Y"],
+            "after": ["y", "$"],
+        },
+        {
+            "before": ["leader", "d"],
+            "after": [""],
+            "commands": [
+                {
+                    "command": "editor.action.copyLinesDownAction",
+                    "args": [],
+                },
+            ],
+        },
+        {
+            "before": ["leader", "w"],
+            "after": [""],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": [],
+                },
+            ],
+        },
+        {
+            "before": ["leader", "/"],
+            "after": [""],
+            "commands": [
+                {
+                    "command": ":set hlsearch! hlsearch?",
+                    "args": [],
+                },
+            ],
+        },
+        {
+            "before": ["leader", "g", "i"],
+            "after": [""],
+            "commands": [
+                {
+                    "command": "python.sortImports",
+                    "args": [],
+                },
+            ],
+        },
+    ],
+    "vim.showmodename": false,
+    "vim.sneak": true,
+
+    "window.restoreWindows": "none",
+
+    "workbench.activityBar.visible": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#E8E8E8",
+        "statusBar.noFolderBackground": "#E8E8E8",
+        "statusBar.debuggingBackground": "#E8E8E8",
+        "statusBar.foreground": "#777",
+        "statusBar.noFolderForeground": "#777",
+        "statusBar.debuggingForeground": "#777",
+        "editorIndentGuide.background": "#00000009",
+        "sideBar.background": "#E8E8E8",
+        "activityBar.background": "#E8E8E8",
+        "activityBar.foreground": "#777",
+        "titleBar.activeBackground": "#E8E8E8",
+        "editorGroupHeader.tabsBackground": "#E8E8E8",
+        "tab.border": "#E8E8E8",
+        "tab.inactiveBackground": "#E8E8E8",
+        "activityBarBadge.background": "#777",
+        "scrollbar.shadow": "#00000000",
+        "editorOverviewRuler.border": "#00000000",
+        "editorWidget.background": "#E8E8E8",
+        "widget.shadow": "#00000000",
+        "editorWidget.border": "#00000000",
+    },
+    "workbench.colorTheme": "Quiet Light",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.fontAliasing": "antialiased",
+    "workbench.iconTheme": null,
+    "workbench.startupEditor": "none",
+    "workbench.statusBar.visible": true,
+    "explorer.confirmDelete": false,
+}
