@@ -1,0 +1,10 @@
+#!/bin/bash
+
+URL=$(npm view "$1" dist.tarball)
+
+if [ $? -eq 0 ]; then
+    curl -s "$URL" | tar xz
+    mv package "$1"
+    printf "# Source\n\n$URL\n" > ./"$1"/SOURCE.md
+    printf "$URL\n"
+fi

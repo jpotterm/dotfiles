@@ -1,16 +1,6 @@
 // Place your key bindings in this file to overwrite the defaults
 [
     {
-        "key": "ctrl+l",
-        "command": "extension.vim_navigateRight",
-        "when": "vim.active && vim.use<C-w>",
-    },
-    {
-        "key": "ctrl+h",
-        "command": "extension.vim_navigateLeft",
-        "when": "vim.active && vim.use<C-w>",
-    },
-    {
         "key": "h",
         "command": "list.collapse",
         "when": "listFocus && !inputFocus",

@@ -1,7 +1,9 @@
 {
+    "editor.autoClosingBrackets": false,
+    "editor.autoIndent": false,
     "editor.colorDecorators": false,
     "editor.cursorBlinking": "solid",
-    "editor.cursorStyle": "underline",
+    "editor.dragAndDrop": false,
     "editor.find.autoFindInSelection": true,
     "editor.find.globalFindClipboard": false,
     "editor.find.seedSearchStringFromSelection": false,
@@ -13,9 +15,15 @@
     "editor.occurrencesHighlight": false,
     "editor.parameterHints": false,
     "editor.roundedSelection": false,
-    "editor.selectionHighlight": false,
+    "editor.smoothScrolling": true,
     "editor.wordWrap": "on",
 
+    "emmet.excludeLanguages": [
+        "markdown",
+        "css"
+    ],
+
+    "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.openEditors.visible": 0,
 
@@ -41,100 +49,54 @@
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
 
+    "html.validate.scripts": false,
+    "html.validate.styles": false,
+
+    "python.disableInstallationCheck": true,
     "python.linting.enabled": false,
+    "python.pythonPath": "/usr/local/bin/python3",
     "python.unitTest.promptToConfigure": false,
+    "python.workspaceSymbols.enabled": false,
 
     "search.exclude": {},
 
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
 
-    "vim.cursorStylePerMode": {
-        "normal": "underline",
-        "insert": "line",
-    },
-    "vim.hlsearch": false,
-    "vim.leader": " ",
-    "vim.otherModesKeyBindingsNonRecursive": [
-        {
-            "before": ["Y"],
-            "after": ["y", "$"],
-        },
-        {
-            "before": ["leader", "d"],
-            "after": [""],
-            "commands": [
-                {
-                    "command": "editor.action.copyLinesDownAction",
-                    "args": [],
-                },
-            ],
-        },
-        {
-            "before": ["leader", "w"],
-            "after": [""],
-            "commands": [
-                {
-                    "command": "workbench.action.files.save",
-                    "args": [],
-                },
-            ],
-        },
-        {
-            "before": ["leader", "/"],
-            "after": [""],
-            "commands": [
-                {
-                    "command": ":set hlsearch! hlsearch?",
-                    "args": [],
-                },
-            ],
-        },
-        {
-            "before": ["leader", "g", "i"],
-            "after": [""],
-            "commands": [
-                {
-                    "command": "python.sortImports",
-                    "args": [],
-                },
-            ],
-        },
-    ],
-    "vim.showmodename": false,
-    "vim.sneak": true,
-
     "window.restoreWindows": "none",
+    "window.zoomLevel": 0,
 
     "workbench.activityBar.visible": true,
     "workbench.colorCustomizations": {
-        "statusBar.background": "#E8E8E8",
-        "statusBar.noFolderBackground": "#E8E8E8",
-        "statusBar.debuggingBackground": "#E8E8E8",
-        "statusBar.foreground": "#777",
-        "statusBar.noFolderForeground": "#777",
-        "statusBar.debuggingForeground": "#777",
-        "editorIndentGuide.background": "#00000009",
-        "sideBar.background": "#E8E8E8",
         "activityBar.background": "#E8E8E8",
         "activityBar.foreground": "#777",
-        "titleBar.activeBackground": "#E8E8E8",
-        "editorGroupHeader.tabsBackground": "#E8E8E8",
-        "tab.border": "#E8E8E8",
-        "tab.inactiveBackground": "#E8E8E8",
         "activityBarBadge.background": "#777",
-        "scrollbar.shadow": "#00000000",
+        "editorGroupHeader.tabsBackground": "#E8E8E8",
+        "editorIndentGuide.background": "#00000009",
+        "editorIndentGuide.activeBackground": "#00000018",
+        "editorLineNumber.activeForeground": "#555",
         "editorOverviewRuler.border": "#00000000",
         "editorWidget.background": "#E8E8E8",
-        "widget.shadow": "#00000000",
         "editorWidget.border": "#00000000",
+        "scrollbar.shadow": "#00000000",
+        "sideBar.background": "#E8E8E8",
+        "statusBar.background": "#E8E8E8",
+        "statusBar.debuggingBackground": "#E8E8E8",
+        "statusBar.debuggingForeground": "#777",
+        "statusBar.foreground": "#777",
+        "statusBar.noFolderBackground": "#E8E8E8",
+        "statusBar.noFolderForeground": "#777",
+        "tab.border": "#E8E8E8",
+        "tab.inactiveBackground": "#E8E8E8",
+        "titleBar.activeBackground": "#E8E8E8",
+        "widget.shadow": "#00000000",
     },
     "workbench.colorTheme": "Quiet Light",
+    "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.tabCloseButton": "off",
     "workbench.fontAliasing": "antialiased",
     "workbench.iconTheme": null,
     "workbench.startupEditor": "none",
     "workbench.statusBar.visible": true,
-    "explorer.confirmDelete": false,
 }
