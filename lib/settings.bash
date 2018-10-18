@@ -76,10 +76,5 @@ sudo bash -c 'cat >/etc/shells <<EOL
 EOL'
 chsh -s /usr/local/bin/bash
 
-
-# Hide Safari's bookmark bar
-# defaults write com.apple.Safari ShowFavoritesBar -bool false
-
-# Set up Safari for development
-# defaults write com.apple.Safari IncludeDevelopMenu -bool true
-# defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
+# Don't prompt to use disks for Time Machine when you plug new ones in
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true

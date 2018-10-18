@@ -1,38 +1,72 @@
 // Place your key bindings in this file to overwrite the defaults
 [
     {
-        "key": "h",
-        "command": "list.collapse",
-        "when": "listFocus && !inputFocus",
-    },
-    {
-        "key": "l",
-        "command": "list.expand",
-        "when": "listFocus && !inputFocus",
-    },
-    {
-        "key": "o",
-        "command": "list.select",
-        "when": "listFocus && !inputFocus",
-    },
-    {
         "key": "ctrl+j",
         "command": "workbench.action.quickOpenSelectNext",
         "when": "inQuickOpen",
     },
+    {
+        "key": "ctrl+n",
+        "command": "-workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen",
+    },
+
+    {
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus",
+    },
+    {
+        "key": "ctrl+n",
+        "command": "-selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus",
+    },
+
     {
         "key": "ctrl+k",
         "command": "workbench.action.quickOpenSelectPrevious",
         "when": "inQuickOpen",
     },
     {
-        "key": "ctrl+j",
-        "command": "selectNextSuggestion",
-        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible",
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen",
     },
+
     {
         "key": "ctrl+k",
         "command": "selectPrevSuggestion",
-        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus",
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus",
+    },
+
+    {
+        "key": "ctrl+v",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus",
+    },
+    {
+        "key": "alt+cmd+down",
+        "command": "-editor.action.insertCursorBelow",
+        "when": "editorTextFocus",
+    },
+
+    {
+        "key": "ctrl+c",
+        "command": "editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+down",
+        "command": "-editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+k cmd+e",
+        "command": "workbench.files.action.collapseExplorerFolders"
     },
 ]
