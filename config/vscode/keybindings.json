@@ -58,15 +58,40 @@
     {
         "key": "ctrl+c",
         "command": "editor.action.copyLinesDownAction",
-        "when": "editorTextFocus && !editorReadonly"
+        "when": "editorTextFocus && !editorReadonly",
     },
     {
         "key": "shift+alt+down",
         "command": "-editor.action.copyLinesDownAction",
-        "when": "editorTextFocus && !editorReadonly"
+        "when": "editorTextFocus && !editorReadonly",
     },
     {
         "key": "cmd+k cmd+e",
-        "command": "workbench.files.action.collapseExplorerFolders"
+        "command": "workbench.files.action.collapseExplorerFolders",
+    },
+    {
+        "key": "j",
+        "command": "list.focusDown",
+        "when": "filesExplorerFocus && listFocus && !inputFocus",
+    },
+    {
+        "key": "k",
+        "command": "list.focusUp",
+        "when": "filesExplorerFocus && listFocus && !inputFocus",
+    },
+    {
+        "key": "h",
+        "command": "list.collapse",
+        "when": "filesExplorerFocus && listFocus && !inputFocus",
+    },
+    {
+        "key": "l",
+        "command": "list.expand",
+        "when": "filesExplorerFocus && listFocus && !inputFocus",
+    },
+    {
+        "key": "o",
+        "command": "list.select",
+        "when": "filesExplorerFocus && listFocus && !inputFocus",
     },
 ]

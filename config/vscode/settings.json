@@ -12,7 +12,6 @@
     "editor.fontFamily": "Roboto Mono",
     "editor.fontSize": 11,
     "editor.hideCursorInOverviewRuler": true,
-    "editor.hover.enabled": false,
     "editor.lineHeight": 18,
     "editor.minimap.enabled": false,
     "editor.occurrencesHighlight": false,
