@@ -1,4 +1,10 @@
 {
+    "dart.closingLabels": false,
+    "[dart]": {
+        "editor.tabSize": 4,
+        "editor.detectIndentation": true,
+    },
+
     "editor.acceptSuggestionOnEnter": "off",
     "editor.acceptSuggestionOnCommitCharacter": false,
     "editor.autoClosingBrackets": "never",

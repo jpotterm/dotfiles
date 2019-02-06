@@ -90,8 +90,18 @@
         "when": "filesExplorerFocus && listFocus && !inputFocus",
     },
     {
-        "key": "o",
-        "command": "list.select",
+        "key": "enter",
+        "command": "-renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus",
+    },
+    {
+        "key": "c",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus",
+    },
+    {
+        "key": "/",
+        "command": "list.toggleKeyboardNavigation",
         "when": "filesExplorerFocus && listFocus && !inputFocus",
     },
 ]

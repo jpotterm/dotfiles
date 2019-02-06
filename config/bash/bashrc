@@ -1,6 +1,5 @@
-# export JAVA_HOME="`/usr/libexec/java_home`"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$HOME/Data/scripts:/Users/admin/Data/libraries/go/bin:$HOME/Library/Android/sdk/platform-tools:$HOME/Data/libraries/flutter/bin:$ANDROID_HOME/tools:$HOME/Library/Haskell/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/Data/scripts:$HOME/Data/libraries/google-cloud-sdk/bin:$HOME/Data/libraries/go/bin:$HOME/Library/Android/sdk/platform-tools:$HOME/Data/libraries/flutter/bin/cache/dart-sdk/bin:$HOME/Data/libraries/flutter/bin:$ANDROID_HOME/tools:$PATH"
 export GOPATH="/Users/admin/Data/libraries/go"
 export SALT_MASTER_REPO="/Users/admin/Data/source/salt-master-v2"
 export HISTCONTROL=ignorespace
