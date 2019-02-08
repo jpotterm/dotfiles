@@ -23,7 +23,6 @@ set runtimepath^=$HOME/.vim/bundle/surround
 set runtimepath^=$HOME/.vim/bundle/taboo
 set runtimepath^=$HOME/.vim/bundle/titlecase
 set runtimepath^=$HOME/.vim/bundle/user_object " Required by line_object
-set runtimepath^=$HOME/.vim/bundle/ultisnips
 
 source ~/.vimrc.d/setting.vim
 source ~/.vimrc.d/plugin.vim

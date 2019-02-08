@@ -102,11 +102,6 @@ PLUGINS = [
         'commit': 'a730d6f240c97a22a18c96767c39a89a744e662f',
     },
     {
-        'directory': 'ultisnips',
-        'repo': 'git@github.com:SirVer/ultisnips.git',
-        'commit': 'f95ce290bc6394d25cd51d0db2e197cd14d6d07b',
-    },
-    {
         'directory': 'user_object',
         'repo': 'git@github.com:kana/vim-textobj-user.git',
         'commit': 'a3054162c09bcf732624f43ddacbd85dad09713b',
