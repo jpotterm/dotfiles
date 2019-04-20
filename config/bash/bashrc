@@ -1,7 +1,7 @@
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$HOME/Data/scripts:$HOME/Data/libraries/google-cloud-sdk/bin:$HOME/Data/libraries/go/bin:$HOME/Library/Android/sdk/platform-tools:$HOME/Data/libraries/flutter/bin/cache/dart-sdk/bin:$HOME/Data/libraries/flutter/bin:$ANDROID_HOME/tools:$PATH"
-export GOPATH="/Users/admin/Data/libraries/go"
-export SALT_MASTER_REPO="/Users/admin/Data/source/salt-master-v2"
+export GOPATH="$HOME/Data/repos/personal/go"
+export PATH="$HOME/Data/repos/personal/provision-mac/config/scripts:$HOME/Data/repos/tools/google-cloud-sdk/bin:$GOPATH/bin:$HOME/Data/repos/tools/flutter/bin/cache/dart-sdk/bin:$HOME/Data/repos/tools/flutter/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
+export SALT_MASTER_REPO="/Users/admin/Data/repos/dwaiter/salt-master-v2"
 export HISTCONTROL=ignorespace
 
 export PS1='\[\e]0;\u@laptop\a\e[0;36m\]\w\[\e[0;32m\]\$\[\e[m\] '
