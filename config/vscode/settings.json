@@ -57,6 +57,9 @@
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
 
+    "go.lintOnSave": "off",
+    "go.vetOnSave": "off",
+
     "html.autoClosingTags": false,
     "html.validate.scripts": false,
     "html.validate.styles": false,
@@ -108,4 +111,5 @@
     "workbench.iconTheme": null,
     "workbench.startupEditor": "none",
     "workbench.statusBar.visible": true,
+    "workbench.tree.indent": 20,
 }
