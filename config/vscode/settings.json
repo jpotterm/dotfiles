@@ -113,4 +113,5 @@
     "workbench.statusBar.visible": true,
     "workbench.tree.indent": 20,
     "go.useLanguageServer": true,
+    "breadcrumbs.enabled": false,
 }
