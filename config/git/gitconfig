@@ -9,7 +9,5 @@
     co = checkout
     di = diff
     st = status
-[core]
-    excludesfile = ~/.gitignore_global
 [push]
     default = simple
