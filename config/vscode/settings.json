@@ -42,6 +42,7 @@
     "files.associations": {
         "*.sls": "yaml"
     },
+    "files.autoSave": "off",
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -74,6 +75,7 @@
     "python.workspaceSymbols.enabled": false,
 
     "search.exclude": {},
+    "search.quickOpen.includeHistory": false,
 
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
@@ -81,7 +83,6 @@
     "window.restoreWindows": "none",
     "window.zoomLevel": 0,
 
-    "workbench.activityBar.visible": true,
     "workbench.colorCustomizations": {
         "activityBar.background": "#E8E8E8",
         "activityBar.foreground": "#777",
@@ -109,10 +110,8 @@
     "workbench.colorTheme": "Quiet Light",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
-    "workbench.editor.tabCloseButton": "off",
     "workbench.fontAliasing": "antialiased",
     "workbench.iconTheme": null,
     "workbench.startupEditor": "none",
-    "workbench.statusBar.visible": true,
     "workbench.tree.indent": 20,
 }

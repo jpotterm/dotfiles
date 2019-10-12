@@ -5,3 +5,6 @@ username = Jonathan Potter <jon@dwaiter.com>
 [alias]
 st = status
 br = branches
+
+[extensions]
+strip =
