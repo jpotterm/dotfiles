@@ -57,14 +57,10 @@
 
     {
         "key": "ctrl+c",
-        "command": "editor.action.copyLinesDownAction",
+        "command": "editor.action.duplicateSelection",
         "when": "editorTextFocus && !editorReadonly",
     },
-    {
-        "key": "shift+alt+down",
-        "command": "-editor.action.copyLinesDownAction",
-        "when": "editorTextFocus && !editorReadonly",
-    },
+
     {
         "key": "cmd+k cmd+e",
         "command": "workbench.files.action.collapseExplorerFolders",
