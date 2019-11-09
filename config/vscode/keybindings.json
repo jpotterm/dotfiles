@@ -57,6 +57,16 @@
 
     {
         "key": "ctrl+c",
+        "command": "editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly",
+    },
+    {
+        "key": "shift+alt+down",
+        "command": "-editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+c",
         "command": "editor.action.duplicateSelection",
         "when": "editorTextFocus && !editorReadonly",
     },
