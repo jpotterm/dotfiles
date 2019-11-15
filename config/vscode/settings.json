@@ -80,6 +80,7 @@
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
 
+    "window.newWindowDimensions": "maximized",
     "window.restoreWindows": "none",
     "window.zoomLevel": 0,
 

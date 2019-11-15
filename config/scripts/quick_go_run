@@ -1,5 +1,5 @@
 #!/bin/bash
 
 go build -o out
-./out
+./out "$@"
 rm -f ./out
