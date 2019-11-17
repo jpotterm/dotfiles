@@ -1,5 +1,4 @@
 #!/bin/bash
 
-go build -o out
-./out "$@"
+go build -o out && ./out "$@"
 rm -f ./out
