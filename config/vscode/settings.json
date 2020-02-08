@@ -13,7 +13,6 @@
     "editor.acceptSuggestionOnCommitCharacter": false,
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
-    "editor.autoIndent": false,
     "editor.colorDecorators": false,
     "editor.cursorBlinking": "solid",
     "editor.dragAndDrop": false,
@@ -29,12 +28,15 @@
     "editor.parameterHints.enabled": false,
     "editor.roundedSelection": false,
     "editor.smoothScrolling": true,
+    "editor.snippetSuggestions": "none",
     "editor.wordWrap": "on",
 
     "emmet.excludeLanguages": [
         "markdown",
-        "css"
+        "css",
+        "scss",
     ],
+    "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
 
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -45,7 +47,7 @@
     "files.associations": {
         "*.sls": "yaml"
     },
-    "files.autoSave": "off",
+    "files.autoSave": "onFocusChange",
     "files.exclude": {
         ".expo": true,
         ".vagrant": true,
@@ -63,6 +65,8 @@
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
 
+    "git.decorations.enabled": false,
+
     "go.lintOnSave": "off",
     "go.useLanguageServer": true,
     "go.vetOnSave": "off",
@@ -76,6 +80,8 @@
     "python.pythonPath": "/usr/local/bin/python3",
     "python.testing.promptToConfigure": false,
     "python.workspaceSymbols.enabled": false,
+
+    "scm.diffDecorations": "gutter",
 
     "scss.completion.completePropertyWithSemicolon": false,
 
