@@ -110,4 +110,8 @@
         "command": "list.toggleKeyboardNavigation",
         "when": "filesExplorerFocus && listFocus && !inputFocus",
     },
+    {
+        "key": "cmd+h cmd+h",
+        "command": "macros.closeOtherTabs",
+    },
 ]

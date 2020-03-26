@@ -75,6 +75,14 @@
     "html.validate.scripts": false,
     "html.validate.styles": false,
 
+    "macros": {
+        "closeOtherTabs": [
+            "workbench.action.closeOtherEditors",
+            "workbench.files.action.collapseExplorerFolders",
+            "workbench.files.action.showActiveFileInExplorer",
+        ],
+    },
+
     "python.disableInstallationCheck": true,
     "python.linting.enabled": false,
     "python.pythonPath": "/usr/local/bin/python3",
