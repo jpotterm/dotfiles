@@ -1,0 +1,21 @@
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export GOPATH="$HOME/Data/repos/personal/go"
+export PATH="$HOME/Data/repos/personal/provision-mac/config/scripts:$HOME/Data/repos/tools/google-cloud-sdk/bin:$GOPATH/bin:$HOME/Data/repos/tools/flutter/bin/cache/dart-sdk/bin:$HOME/Data/repos/tools/flutter/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
+export SALT_MASTER_REPO="/Users/admin/Data/repos/dwaiter/salt-master-v2"
+export HISTCONTROL=ignorespace
+
+export PS1='%F{cyan}%~%f%F{green}%#%f '
+export CLICOLOR=1
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../..'
+alias ......='cd ../../../..'
+alias .......='cd ../../../../..'
+alias ........='cd ../../../../../..'
+alias .........='cd ../../../../../../..'
+alias ..........='cd ../../../../../../../..'
+alias ...........='cd ../../../../../../../../..'
+alias ............='cd ../../../../../../../../../..'
+alias .............='cd ../../../../../../../../../../..'

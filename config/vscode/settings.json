@@ -1,6 +1,4 @@
 {
-    "breadcrumbs.enabled": false,
-
     "css.completion.completePropertyWithSemicolon": false,
 
     "dart.closingLabels": false,
@@ -23,7 +21,6 @@
     "editor.hideCursorInOverviewRuler": true,
     "editor.lineHeight": 18,
     "editor.lineNumbers": "off",
-    "editor.minimap.enabled": false,
     "editor.occurrencesHighlight": false,
     "editor.parameterHints.enabled": false,
     "editor.roundedSelection": false,
@@ -75,17 +72,17 @@
     "html.validate.scripts": false,
     "html.validate.styles": false,
 
-    "macros": {
+    "macros.list": {
         "closeOtherTabs": [
             "workbench.action.closeOtherEditors",
             "workbench.files.action.collapseExplorerFolders",
             "workbench.files.action.showActiveFileInExplorer",
+            "workbench.action.focusFirstEditorGroup",
         ],
     },
 
     "python.disableInstallationCheck": true,
     "python.linting.enabled": false,
-    "python.pythonPath": "/usr/local/bin/python3",
     "python.testing.promptToConfigure": false,
     "python.workspaceSymbols.enabled": false,
 
@@ -134,4 +131,20 @@
     "workbench.iconTheme": null,
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 20,
+    "timeline.excludeSources": [],
+    "python.defaultInterpreterPath": "/usr/local/bin/python3",
+    "python.showStartPage": false,
+    "debug.javascript.codelens.npmScripts": "never",
+    "breadcrumbs.filePath": "off",
+    "breadcrumbs.icons": false,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "go.toolsManagement.autoUpdate": true,
+    "workbench.editor.closeOnFileDelete": true,
+    "workbench.editor.untitled.hint": "hidden",
+    "editor.minimap.enabled": false,
 }
