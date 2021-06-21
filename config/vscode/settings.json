@@ -137,14 +137,12 @@
     "debug.javascript.codelens.npmScripts": "never",
     "breadcrumbs.filePath": "off",
     "breadcrumbs.icons": false,
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "go.toolsManagement.autoUpdate": true,
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.untitled.hint": "hidden",
     "editor.minimap.enabled": false,
+    "security.workspace.trust.enabled": false,
 }
