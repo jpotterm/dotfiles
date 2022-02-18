@@ -15,7 +15,6 @@
     "editor.cursorBlinking": "solid",
     "editor.dragAndDrop": false,
     "editor.find.globalFindClipboard": false,
-    "editor.find.seedSearchStringFromSelection": false,
     "editor.fontFamily": "Roboto Mono",
     "editor.fontSize": 11,
     "editor.hideCursorInOverviewRuler": true,
@@ -67,6 +66,7 @@
     "go.lintOnSave": "off",
     "go.useLanguageServer": true,
     "go.vetOnSave": "off",
+    "go.toolsManagement.autoUpdate": true,
 
     "html.autoClosingTags": false,
     "html.validate.scripts": false,
@@ -93,12 +93,8 @@
     "search.exclude": {},
     "search.quickOpen.includeHistory": false,
 
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-
     "window.newWindowDimensions": "maximized",
     "window.restoreWindows": "none",
-    "window.zoomLevel": 0,
 
     "workbench.colorCustomizations": {
         "activityBar.background": "#E8E8E8",
@@ -133,16 +129,34 @@
     "workbench.tree.indent": 20,
     "timeline.excludeSources": [],
     "python.defaultInterpreterPath": "/usr/local/bin/python3",
-    "python.showStartPage": false,
     "debug.javascript.codelens.npmScripts": "never",
     "breadcrumbs.filePath": "off",
     "breadcrumbs.icons": false,
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
+        "*.ipynb": "jupyter-notebook"
     },
-    "go.toolsManagement.autoUpdate": true,
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.untitled.hint": "hidden",
     "editor.minimap.enabled": false,
     "security.workspace.trust.enabled": false,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "workbench.list.automaticKeyboardNavigation": false,
+    "editor.find.seedSearchStringFromSelection": "never",
+    "mssql.connections": [
+        {
+            "server": "localhost",
+            "database": "",
+            "authenticationType": "SqlLogin",
+            "user": "sa",
+            "password": "",
+            "emptyPasswordInput": false,
+            "savePassword": true
+        }
+    ],
+    "mssql.enableQueryHistoryCapture": false,
+    "editor.hover.delay": 2000,
+    "telemetry.telemetryLevel": "off",
 }

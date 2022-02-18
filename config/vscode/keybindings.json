@@ -113,5 +113,5 @@
     {
         "key": "cmd+h cmd+h",
         "command": "macros.closeOtherTabs",
-    },
+    }
 ]
