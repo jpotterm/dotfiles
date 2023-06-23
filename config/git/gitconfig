@@ -7,10 +7,14 @@
     ci = commit
     co = checkout
     st = status
+    br = branch
     ac = !git add -A && git commit
+    po = push origin
 [core]
     excludesfile = ~/.gitignore_global
 [push]
     default = simple
 [init]
 	defaultBranch = master
+[pull]
+	ff = only
