@@ -1,4 +1,4 @@
-from talon import Context, Module, actions, app
+from talon import Context, Module, actions, grammar
 
 mod = Module()
 ctx = Context()
@@ -44,36 +44,38 @@ ctx.lists['user.key'] = {
     'nine': '9',
 
     'comma': ',',
-    'semicolon': ';',
+    'semi': ';',
     'colon': ':',
     'at sign': '@',
     'dot': '.',
-    'quote': "'",
+    'apostrophe': "'",
     'question': '?',
     'square': '[',
     'close square': ']',
     'slash': '/',
     'backslash': '\\',
     'minus': '-',
-    'equals': '=',
+    'equal': '=',
     'plus': '+',
     'grave': '`',
     'tilde': '~',
     'bang': '!',
-    'down score': '_',
+    'underscore': '_',
     'paren': '(',
     'close paren': ')',
     'brace': '{',
     'close brace': '}',
     'angle': '<',
+    'less than': '<',
     'close angle': '>',
+    'greater than': '>',
     'star': '*',
     'hash': '#',
     'percent': '%',
     'caret': '^',
     'amper': '&',
     'pipe': '|',
-    'dub quote': '"',
+    'double apostrophe': '"',
     'dollar': '$',
 
     'end': 'end',
@@ -82,9 +84,9 @@ ctx.lists['user.key'] = {
     'home': 'home',
     'pagedown': 'pagedown',
     'pageup': 'pageup',
-    'space': 'space',
+    'pad': 'space',
     'tab': 'tab',
-    'backspace': 'backspace',
+    'ash': 'backspace',
     'delete': 'delete',
     'down': 'down',
     'left': 'left',
@@ -162,20 +164,295 @@ ctx.lists['user.times'] = {
     'fifty nine': '59',
 }
 
+word_substitutions = {
+    "Abel": "able",
+    "except": "accept",
+    "ad": "add",
+    "edition": "addition",
+    "ads": "adds",
+    "adz": "adds",
+    "ariel": "aerial",
+    "effected": "affected",
+    "afterword": "afterward",
+    "aide": "aid",
+    "awl": "all",
+    "aloud": "allowed",
+    "altar": "alter",
+    "annalist": "analyst",
+    "apatite": "appetite",
+    "ark": "arc",
+    "Adam": "atom",
+    "aweigh": "away",
+    "axes": "axis",
+    "bale": "bail",
+    "baal": "bail",
+    "bawl": "ball",
+    "band": "banned",
+    "bear": "bare",
+    "beryl": "barrel",
+    "bass": "base",
+    "baste": "based",
+    "bee": "be",
+    "beet": "beat",
+    "bettor": "better",
+    "been": "bin",
+    "bloc": "block",
+    "blew": "blue",
+    "bullion": "boolean",
+    "brake": "break",
+    "brows": "browse",
+    "billed": "build",
+    "butt": "but",
+    "buy": "by",
+    "bye": "by",
+    "bite": "byte",
+    "bight": "byte",
+    "cash": "cache",
+    "cashed": "cached",
+    "calendar": "calender",
+    "Cain": "cane",
+    "canvass": "canvas",
+    "capitol": "capital",
+    "caste": "cast",
+    "caws": "cause",
+    "sealing": "ceiling",
+    "sell": "cell",
+    "chants": "chance",
+    "cheep": "cheap",
+    "Czech": "check",
+    "Chile": "chilly",
+    "chili": "chilly",
+    "chews": "choose",
+    "claws": "clause",
+    "clique": "click",
+    "clothes": "close",
+    "cloze": "close",
+    "consul": "console",
+    "consol": "console",
+    "consonance": "consonants",
+    "daze": "days",
+    "dents": "dense",
+    "dialogue": "dialog",
+    "discreet": "discrete",
+    "due": "do",
+    "dew": "do",
+    "dock": "doc",
+    "urn": "earn",
+    "elts": "else",
+    "innumerable": "enumerable",
+    "air": "err",
+    "heir": "err",
+    "I": "eye",
+    "aye": "eye",
+    "feat": "feet",
+    "phew": "few",
+    "fined": "find",
+    "Finnish": "finish",
+    "floe": "flow",
+    "foaled": "fold",
+    "four": "for",
+    "fore": "for",
+    "foreword": "forward",
+    "forth": "fourth",
+    "frees": "freeze",
+    "frieze": "freeze",
+    "Gail": "gale",
+    "Jim": "gym",
+    "hear": "here",
+    "hi": "high",
+    "hire": "higher",
+    "hymn": "him",
+    "holed": "hold",
+    "our": "hour",
+    "ours": "hours",
+    "Hugh": "hue",
+    "hew": "hue",
+    "idol": "idle",
+    "idyll": "idle",
+    "allusion": "illusion",
+    "inn": "in",
+    "instants": "instance",
+    "it's": "its",
+    "jason": "json",
+    "colonel": "kernel",
+    "nock": "knock",
+    "lapse": "laps",
+    "Lapps": "laps",
+    "leased": "least",
+    "lends": "lens",
+    "lite": "light",
+    "lynx": "links",
+    "littoral": "literal",
+    "lode": "load",
+    "lowed": "load",
+    "loch": "lock",
+    "lochs": "locks",
+    "lox": "locks",
+    "lo": "low",
+    "male": "mail",
+    "Maine": "main",
+    "mane": "main",
+    "meth": "math",
+    "men": "min",
+    "mien": "mean",
+    "mite": "might",
+    "miner": "minor",
+    "mist": "missed",
+    "mowed": "mode",
+    "mooed": "mood",
+    "mourning": "morning",
+    "mussed": "must",
+    "knead": "need",
+    "kneed": "need",
+    "Nice": "niece",
+    "knight": "night",
+    "know": "no",
+    "nun": "none",
+    "knot": "not",
+    "ore": "or",
+    "oar": "or",
+    "aural": "oral",
+    "overdo": "overdue",
+    "pact": "packed",
+    "patted": "padded",
+    "pear": "pair",
+    "pare": "pair",
+    "palate": "palette",
+    "pallet": "palette",
+    "passed": "past",
+    "paced": "paste",
+    "patience": "patients",
+    "paws": "pause",
+    "pur": "per",
+    "pier": "peer",
+    "frays": "phrase",
+    "pie": "pi",
+    "peace": "piece",
+    "plane": "plain",
+    "purse": "parse",
+    "cu": "queue",
+    "rays": "raise",
+    "raze": "raise",
+    "reed": "read",
+    "reel": "real",
+    "residence": "residents",
+    "wrest": "rest",
+    "write": "right",
+    "rite": "right",
+    "roll": "role",
+    "roe": "row",
+    "rose": "rows",
+    "cede": "seed",
+    "cellar": "seller",
+    "censor": "sensor",
+    "cent": "sent",
+    "scent": "sent",
+    "cereal": "serial",
+    "cession": "session",
+    "sighed": "side",
+    "sighs": "size",
+    "sloe": "slow",
+    "sow": "so",
+    "sew": "so",
+    "soled": "sold",
+    "sum": "some",
+    "steppe": "step",
+    "strait": "straight",
+    "stile": "style",
+    "Sioux": "sue",
+    "summery": "summary",
+    "cymbal": "symbol",
+    "sink": "sync",
+    "tale": "tail",
+    "tacks": "tax",
+    "teem": "team",
+    "thee": "the",
+    "threw": "through",
+    "throes": "throws",
+    "tic": "tick",
+    "thyme": "time",
+    "two": "to",
+    "too": "to",
+    "tern": "turn",
+    "undue": "undo",
+    "ewes": "use",
+    "yews": "use",
+    "wok": "walk",
+    "Wayne": "wane",
+    "wain": "wane",
+    "wee": "we",
+    "wear": "where",
+    "ware": "where",
+    "witch": "which",
+    "wile": "while",
+    "hole": "whole",
+    "whirred": "word",
+    "whirled": "world",
+    "whorled": "world",
+    "rap": "wrap",
+    "rapped": "wrapped",
+    "rapt": "wrapped",
+    "rapper": "wrapper",
+}
+
+# homophones = [
+#     ['to', 'two', 'too'],
+# ]
+
+# latest_word = None
+
+def normalize_word(s):
+    return (word_substitutions[s] if s in word_substitutions else s).lower()
+
 @mod.action_class
 class Actions:
     def join_dashes(xs: list[str]) -> str:
         '''Join with dashes'''
         return '-'.join(xs)
 
-    def title_case(s: str) -> str:
-        '''Title case'''
-        return s.capitalize()
-
-    def upper_case(s: str) -> str:
-        '''Upper case'''
-        return s.upper()
-
     def parse_int(s: str) -> int:
-        '''Upper case'''
+        '''Parse int'''
         return int(s)
+
+    def word(s: grammar.vm.Phrase):
+        '''Word'''
+        actions.insert(normalize_word(s))
+
+    def title(s: grammar.vm.Phrase):
+        '''Title'''
+        actions.insert(normalize_word(s).capitalize())
+
+    def upper(s: grammar.vm.Phrase):
+        '''Upper'''
+        actions.insert(normalize_word(s).upper())
+
+    def snake(s: grammar.vm.Phrase):
+        '''Snake'''
+        actions.insert('_' + normalize_word(s))
+
+    def method(s: grammar.vm.Phrase):
+        '''Method'''
+        actions.insert('.' + normalize_word(s))
+
+    def say(s: grammar.vm.Phrase):
+        '''Method'''
+        actions.insert(s)
+
+        # global latest_word
+        # latest_word = {
+        #     'word': s,
+        #     'style': 'word',
+        # }
+
+    # def phones():
+    #     '''Phones'''
+    #     global latest_word
+    #     if latest_word == None:
+    #         return
+
+    #     for x in homophones:
+    #         for y in x:
+    #             if y == latest_word['word']:
+    #                 pass
+
+    #     actions.key('backspace:' + str(len(latest_word['word'])))

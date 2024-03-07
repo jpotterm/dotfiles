@@ -123,5 +123,152 @@
         "key": "shift+escape",
         "command": "calva.clearInlineResults",
         "when": "editorTextFocus && !editorHasMultipleSelections && !editorReadOnly && !hasOtherSuggestions && !suggestWidgetVisible && editorLangId == 'clojure'"
-    }
+    },
+    {
+        "key": "ctrl+shift+alt+cmd+z",
+        "command": "jumpToNextSnippetPlaceholder",
+        "when": "editorTextFocus && hasNextTabstop && inSnippetMode"
+    },
+    {
+        "key": "tab",
+        "command": "-jumpToNextSnippetPlaceholder",
+        "when": "editorTextFocus && hasNextTabstop && inSnippetMode"
+    },
+    {
+        "key": "ctrl+shift+alt+cmd+y",
+        "command": "jumpToPrevSnippetPlaceholder",
+        "when": "editorTextFocus && hasPrevTabstop && inSnippetMode"
+    },
+    {
+        "key": "shift+tab",
+        "command": "-jumpToPrevSnippetPlaceholder",
+        "when": "editorTextFocus && hasPrevTabstop && inSnippetMode"
+    },
+
+    // Snippets
+    {
+        "key": "ctrl+alt+cmd+shift+a",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "const $1 = $0;"
+        }
+    },
+    {
+        "key": "ctrl+alt+cmd+shift+b",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "if ($0) {\n\t$TM_SELECTED_TEXT\n}"
+        }
+    },
+    {
+        "key": "ctrl+alt+cmd+shift+c",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": " else if ($0) {\n\t\n}"
+        }
+    },
+    {
+        "key": "ctrl+alt+cmd+shift+d",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": " else {\n\t$0\n}"
+        }
+    },
+    {
+        "key": "ctrl+alt+cmd+shift+e",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "for (const $1 of $0) {\n}"
+        }
+    },
+    {
+        "key": "ctrl+alt+cmd+shift+f",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "($1) => $0"
+        }
+    },
+    {
+        "key": "ctrl+alt+cmd+shift+g",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "function $1($2)$0 {\n}"
+        }
+    },
+    // {
+    //     "key": "ctrl+alt+cmd+shift+h",
+    //     "command": "editor.action.insertSnippet",
+    //     "when": "editorTextFocus",
+    //     "args": {
+    //         "snippet": " === $0"
+    //     }
+    // },
+    // {
+    //     "key": "ctrl+alt+cmd+shift+i",
+    //     "command": "editor.action.insertSnippet",
+    //     "when": "editorTextFocus",
+    //     "args": {
+    //         "snippet": " !== $0"
+    //     }
+    // },
+    {
+        "key": "ctrl+alt+cmd+shift+j",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "h('div', { className: c('$0') },\n\t$TM_SELECTED_TEXT\n),"
+        }
+    },
+    // {
+    //     "key": "ctrl+alt+cmd+shift+k",
+    //     "command": "editor.action.insertSnippet",
+    //     "when": "editorTextFocus",
+    //     "args": {
+    //         "snippet": " && $0"
+    //     }
+    // },
+    // {
+    //     "key": "ctrl+alt+cmd+shift+l",
+    //     "command": "editor.action.insertSnippet",
+    //     "when": "editorTextFocus",
+    //     "args": {
+    //         "snippet": " || $0"
+    //     }
+    // },
+    {
+        "key": "ctrl+alt+cmd+shift+m",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": " ? $1 : $0"
+        }
+    },
+    {
+        "key": "ctrl+alt+cmd+shift+n",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "return $0;"
+        }
+    },
+    {
+        "key": "ctrl+alt+cmd+shift+o",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": ".SCOPE.$0 {\n\t\n}"
+        }
+    },
+    {
+        "key": "ctrl+shift+alt+cmd+x",
+        "command": "hideSuggestWidget",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
 ]

@@ -1,5 +1,5 @@
 {
-    "css.completion.completePropertyWithSemicolon": false,
+    // "css.completion.completePropertyWithSemicolon": false,
 
     "dart.closingLabels": false,
     "[dart]": {
@@ -9,8 +9,8 @@
 
     "editor.acceptSuggestionOnEnter": "off",
     "editor.acceptSuggestionOnCommitCharacter": false,
-    "editor.autoClosingBrackets": "never",
-    "editor.autoClosingQuotes": "never",
+    // "editor.autoClosingBrackets": "never",
+    // "editor.autoClosingQuotes": "never",
     "editor.colorDecorators": false,
     "editor.cursorBlinking": "solid",
     "editor.dragAndDrop": false,
@@ -35,7 +35,7 @@
 
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    "explorer.openEditors.visible": 0,
+    // "explorer.openEditors.visible": 1,
 
     "extensions.ignoreRecommendations": true,
 
@@ -67,7 +67,7 @@
     "go.vetOnSave": "off",
     "go.toolsManagement.autoUpdate": true,
 
-    "html.autoClosingTags": false,
+    // "html.autoClosingTags": false,
     "html.validate.scripts": false,
     "html.validate.styles": false,
 
@@ -136,7 +136,6 @@
     },
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.untitled.hint": "hidden",
-    "editor.minimap.enabled": false,
     "security.workspace.trust.enabled": false,
     "notebook.cellToolbarLocation": {
         "default": "right",
@@ -163,7 +162,6 @@
     "tabnine.experimentalAutoImports": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "git.openRepositoryInParentFolders": "always",
-    "workbench.layoutControl.enabled": false,
     "aws.telemetry": false,
     "aws.codeWhisperer.shareCodeWhispererContentWithAWS": false,
     "intellicodeCompletions.parseErrorFilter": false,
@@ -172,4 +170,11 @@
         "pink": false
     },
     "editor.lineNumbers": "relative",
+    "workbench.layoutControl.enabled": false,
+    "window.commandCenter": false,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.size": "fill",
+    "editor.minimap.renderCharacters": false,
+    "editor.accessibilitySupport": "off",
+    "outline.collapseItems": "alwaysCollapse",
 }
